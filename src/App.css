@@ -188,12 +188,14 @@ hr{
 .adress_serch{
     margin-bottom: 10px;
     float: right;
+    border: none;
+    color: #797979;
 }
 
 .login_page{
     padding: 4px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 8%;
     min-height: 100vh;
 }
