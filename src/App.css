@@ -1,0 +1,123 @@
+#login_join_btn{
+    width: 100%;
+    padding: 5px;
+    font-size: large;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(to right, #32D2C9, #66FAB3);
+    
+}
+
+#pw_update_btn{
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+
+#btn_design{
+    border: none;
+    background-color: rgba(0,0,0,0);
+    float: right;
+}
+
+#main_menu_btn_design{
+    border: none;
+    background-color: rgba(0,0,0,0);
+    
+}
+
+#main_login_btn{
+    padding: 5px;
+    font-size: small;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(to right, #32D2C9, #66FAB3);
+}
+
+#main_travel_rec{
+    display: flex;
+}
+#main_menu > div{
+    width: 500px;
+    display: flex;
+    margin: 5px auto;
+}
+#main_menu_list > div{
+    width: 50px;
+    margin: 5px auto;
+}
+
+
+#travel_rec_group{
+    width: 100%;
+    background: #b5e3e1;
+    border-radius: 10px;
+    margin: 10px;
+    color: white;
+}
+
+#travel_rec_group > button{
+    background: white;
+    border-radius: 5px;
+    margin: 5px;
+    border: none;
+    
+}
+
+#travel_rec_group > label{
+    margin-left: 10px;
+    
+}
+
+#logo_img{
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+#main_logo_img{
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: inline;
+}
+
+#font_size{
+    font-size: 12px;
+}
+
+#link{
+    color: inherit;
+    text-decoration-line: none;
+}
+
+.bir_yy, .bir_mm, .bir_dd{
+    width: 160px;
+    display: table-cell;
+}
+.bir_mm+.bir_dd,.bir_yy+.bir_mm{
+    padding-left: 10px;
+}
+
+.postmodal{
+    background : rgba(0,0,0,0.25);
+    position : fixed;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+}
+
+.filter{
+    display: inline;
+    margin-left: 10px;
+}
+
