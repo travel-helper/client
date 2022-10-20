@@ -18,9 +18,7 @@ const LoginBtnClick = (email, password) => {
 }
 const Login = () => {
     return (
-        <div>
-            
-            <Container className="p-4 d-flex justify-content-center">
+            <Container className="login_page">
                 <Form className="w-50">
                     <Form.Group className="mb-1" controlId="formBasicEmail">
                         <Form.Control id="email" type="email" placeholder="이메일" className="bg-secondary bg-opacity-10" />
@@ -48,11 +46,16 @@ const Login = () => {
                     <br/>
                     <br/>
                     <hr/>
-                    <p>sns로 간편 로그인 및 회원가입</p>
+                    <p className="sns_text">sns로 간편 로그인 및 회원가입</p>
+
+                    <div className="sns_login_btn">
+                        <button id="kakao_login_join_btn"></button>
+                        <button id="naver_login_join_btn"></button>
+                        <button id="facebook_login_join_btn"></button>
+                    </div>
+                    
                 </Form>
             </Container>
-            
-        </div>
     
   );
 };

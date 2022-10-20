@@ -2,12 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import Login from "./page/Login";
-import Main from "./page/Main";
-import Join from "./page/Join";
-import { Header } from "./components/Header";
-import BorderWrite from "./page/BorderWrite";
-
 import Login from "./componetns/views/Login";
 import Main from "./componetns/views/Main";
 import Join from "./componetns/views/Join";

@@ -51,7 +51,13 @@ const Join = () => {
     }
     return (
         <div>
-            
+            <p className="sns_text">sns로 간편 회원가입</p>
+            <div className="sns_login_btn">
+                <button id="kakao_login_join_btn"></button>
+                <button id="naver_login_join_btn"></button>
+                <button id="facebook_login_join_btn"></button>
+            </div>
+            <hr></hr>
             <Container className="p-4 d-flex justify-content-center">
                 <Form className="w-50" >
                     <Form.Group className="mb-1" controlId="formBasicEmail" > 
@@ -97,7 +103,7 @@ const Join = () => {
                         <Form.Label>생년월일</Form.Label>
                         <div class="bir_yy">
                             <span class="ps_box">
-                                <input type="text" class="form-control" id="yy" placeholder="년(4자)" maxlengtn="4"/>
+                                <input type="text"  class="form-control" id="yy" placeholder="년(4자)" maxlengtn="4"/>
                             </span>
                         </div>
                         <div class="bir_mm">
@@ -127,10 +133,11 @@ const Join = () => {
                     </Form.Group>
 
                     <Form.Group>
-                    <Form.Label>주소</Form.Label>    
-                    <div className="address_search" >
+                    <Form.Label >주소</Form.Label>  
+                    <button onClick={handleComplete} className="adress_serch"> 찾기</button>  
+                    <div className="address_search">
                         <input id="address" className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
-                        <button onClick={handleComplete} className="mb-3">우편번호 찾기</button>
+                        
                         {popup && <Post company={enroll_company} setcompany={setEnroll_company}></Post>}
                     </div>
                     </Form.Group>

@@ -121,3 +121,79 @@
     margin-left: 10px;
 }
 
+#kakao_login_join_btn{
+    background: #FFE248;
+    margin-right: 10px;
+    width: 80px;
+    height: 83.73px;
+    left: 2534px;
+    top: 772.25px;
+    border-radius: 50px;
+    border: none;
+}
+#naver_login_join_btn{
+    background: #47EC57;
+    margin-right: 10px;
+    width: 80px;
+    height: 83.73px;
+    left: 2647px;
+    top: 772.25px;
+    border-radius: 50px;
+    border: none;
+}
+#facebook_login_join_btn{
+    background: #4850FF;
+    width: 80px;
+    height: 83.73px;
+    left: 2760px;
+    top: 772.25px;
+    border-radius: 50px;
+    border: none;
+}
+.sns_login_btn{
+    justify-content: center;
+    display: flex;
+    
+}
+
+.sns_text{
+    font-family: 'Khand';
+    font-style: normal;
+    font-size: 17px;
+    line-height: 37px;
+
+    display: flex;
+    justify-content: center;
+
+    color: #797979;
+
+}
+
+hr{
+    margin: 0px auto;
+    margin-top: 10px;
+    width: 50%;
+    height: 0px;
+    left: 1771px;
+    top: 486.51px;
+    border: 1px solid #000000;
+}
+
+.user_enroll_text{
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.adress_serch{
+    margin-bottom: 10px;
+    float: right;
+}
+
+.login_page{
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}

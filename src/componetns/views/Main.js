@@ -3,9 +3,6 @@ import Recommend_travel from '../main/Recommend_travel';
 const Main = () => {
   return (
     <div className='container'>
-      
-      
-
       <div id="main_travel_rec">
         <Recommend_travel/>
         <Recommend_travel/>
