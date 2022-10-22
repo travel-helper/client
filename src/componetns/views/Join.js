@@ -1,9 +1,10 @@
 import axios from "axios";
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Collapse, Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import Post from "../main/Post";
+
 
 const joinBtnClick = (email,password,nickname,gender,age,address) => {
     console.log("버튼이 눌렸당께요")
@@ -46,8 +47,19 @@ const Join = () => {
 
     const [successJoin,setSuccessJoin] = useState(true);
 
-    const changePassword = (e) => {
-        // 나중에 수정
+    const [notMatchingPW, setNotMatchingPW] = useState(false);
+
+    const [matchingPW, setMatchingPW] = useState(false);
+
+    const samePassword = (e, setNotMatchingPW, setMatchingPW, password) => {
+        
+        if(e.target.value == password ){
+            setNotMatchingPW(false)
+            setMatchingPW(true);
+        }else{
+            setNotMatchingPW(true)
+            setMatchingPW(false);
+        }
     }
 
     
@@ -87,8 +99,22 @@ const Join = () => {
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label>비밀번호 확인</Form.Label>
-                        <Form.Control type="password" className="bg-secondary bg-opacity-10" onChange={changePassword} id="passwordCheck" />
-                    
+                        <Form.Control type="password" className="bg-secondary bg-opacity-10" 
+                                    onChange={(e)=>{
+                                        var password = document.getElementById("password").value;
+                                        samePassword(e, setNotMatchingPW, setMatchingPW, password)}
+                                    } id="passwordCheck"
+                                    aria-controls="passwordCheck-text" aria-expanded={notMatchingPW} />
+                        <Collapse in={notMatchingPW}>
+                                <div id="passwordCheck-text" style={{color:"red"}}>
+                                비밀번호가 일치하지 않습니다.
+                                </div>
+                            </Collapse>
+                        <Collapse in={matchingPW}>
+                                <div id="passwordCheck-text" style={{color:"blue"}}>
+                                비밀번호가 일치합니다
+                                </div>
+                        </Collapse>                         
                     </Form.Group>
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
