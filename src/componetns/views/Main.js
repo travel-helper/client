@@ -1,11 +1,9 @@
 import React from 'react'
-import Recommend_travel from '../main/Recommend_travel';
+import Recommend_travel from '../main/bannerSlider';
 const Main = () => {
   return (
     <div className='container'>
-      <div id="main_travel_rec">
-        <Recommend_travel/>
-        <Recommend_travel/>
+      <div>
         <Recommend_travel/>
       </div>
 
@@ -16,10 +14,7 @@ const Main = () => {
           <div>이벤트</div>
           <div>Q&A</div>
         </div>
-          
-        
       </div>
-      
     </div>
       
     

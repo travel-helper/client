@@ -41,9 +41,6 @@
     background: linear-gradient(to right, #32D2C9, #66FAB3);
 }
 
-#main_travel_rec{
-    display: flex;
-}
 #main_menu > div{
     width: 500px;
     display: flex;
@@ -55,25 +52,84 @@
 }
 
 
-#travel_rec_group{
-    width: 100%;
-    background: #b5e3e1;
-    border-radius: 10px;
-    margin: 10px;
-    color: white;
+.banner{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 7px 15px;
+    gap: 10px;
+
+    width: 325px;
+    height: 114px;
+
+    background: #84E4DF;
+    
+    
+    border-radius: 15px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
-#travel_rec_group > button{
-    background: white;
-    border-radius: 5px;
-    margin: 5px;
-    border: none;
-    
+.banner > label{
+    /* 지금 당장 제주도 여행가자! */
+    width: 268px;
+    height: 29px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 25px;
+    color: #FFFFFF;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
-#travel_rec_group > label{
-    margin-left: 10px;
-    
+.banner > button{
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 11px;
+    gap: 10px;
+
+    width: 183px;
+    height: 35px;
+
+    background: #FFFFFF;
+    border-radius: 50px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    border:  none;
+}
+.banner > button > p{
+    width: 161px;
+    height: 19px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #797979;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
 }
 
 #logo_img{
