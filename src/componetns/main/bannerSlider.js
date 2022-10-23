@@ -17,7 +17,7 @@ function Arrow(props) {
 
   
   
-const bannerSlider = () => {
+const BannerSlider = () => {
   const settings = {
 	dots: true,
 	infinite: true,
@@ -31,7 +31,7 @@ const bannerSlider = () => {
   return (
     <Container>
       <Slider {...settings}>
-    	<div className='banner'>
+    	<div className='banner' >
     	  <label>지금 제주도로 여행가자!</label>
 		  <button><p>보러가기</p></button>
 		  
@@ -66,4 +66,4 @@ const bannerSlider = () => {
   )
 };
 
-export default bannerSlider;
+export default BannerSlider;

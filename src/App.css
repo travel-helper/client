@@ -62,7 +62,9 @@
     width: 325px;
     height: 114px;
 
-    background: #84E4DF;
+    background-image: url('/public/img/jejudo.png');
+    background-size: cover;
+    /* background: #84E4DF; */
     
     
     border-radius: 15px;
@@ -254,4 +256,8 @@ hr{
     justify-content: center;
     margin-top: 8%;
     min-height: 100vh;
+}
+
+#main_menu{
+    margin-top: 50px;
 }
