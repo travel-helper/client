@@ -12,7 +12,9 @@ const Main = () => {
         <div id="main_menu_list">
           <div>팔로잉</div>
           <div>여행</div>
-          <div>이벤트</div>
+          <div>
+            이벤트
+            </div>
           <div>Q&A</div>
         </div>
       </div>
