@@ -8,12 +8,32 @@ const Event = () =>{
     
 
     <div>
-        <div className=''>
-            <div className="col-md-3">
+        <div className='col-n'>
+            <div className="row-md-3">
                 <Banner title="제주도갈래 집갈래"/>
                 <Banner title="핫 이슈 대구 맛집"/>
                 <Banner title="오션뷰가 끝내주는 숙소"/>
             </div>
+            <div className="row-md-3">
+                <Banner title="제주도갈래 집갈래"/>
+                <Banner title="핫 이슈 대구 맛집"/>
+                <Banner title="오션뷰가 끝내주는 숙소"/>
+            </div>   
+            <div className="row-md-3">
+                <Banner title="제주도갈래 집갈래"/>
+                <Banner title="핫 이슈 대구 맛집"/>
+                <Banner title="오션뷰가 끝내주는 숙소"/>
+            </div>      
+            <div className="row-md-3">
+                <Banner title="제주도갈래 집갈래"/>
+                <Banner title="핫 이슈 대구 맛집"/>
+                <Banner title="오션뷰가 끝내주는 숙소"/>
+            </div>   
+            <div className="row-md-3">
+                <Banner title="제주도갈래 집갈래"/>
+                <Banner title="핫 이슈 대구 맛집"/>
+                <Banner title="오션뷰가 끝내주는 숙소"/>
+            </div>         
       </div>
 
 

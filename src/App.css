@@ -118,25 +118,45 @@
 /* #######이벤트 페이지에 있는 css들!!!!! ############################################*/
 /*  이벤트 배너 */
 .eventBanner{
-    /* Frame 4 */
-
-
-/* Auto layout */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 7px 15px;
     gap: 10px;
 
-    position: absolute;
-    width: px;
+    width: 325px;
     height: 114px;
-    left: 0px;
-    top: 0px;
 
-    background: #84E4DF;
+    /* background-image: url('/public/img/jejudo.png'); */
+    background-size: cover;
+    background: linear-gradient(120.14deg, #32D2C9 27.53%, #FFF1A8 86.99%);
     border-radius: 15px;
+
+
+}
+
+.col-n{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+}
+
+.row-md-3{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+    align-items: flex-start;
+    padding: 25px 0px 10px;
+    gap: 20px;
+    
+    position:relative;
+    width: 1015px;
+    height: 100px;
+    left: 49px;
+    /* top: 260px; */
 }
 
 .eventBannerLayout{
@@ -255,21 +275,7 @@
     flex-grow: 0;
 }
 
-.col-md-3{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    
-    align-items: flex-start;
-    padding: 25px 0px 10px;
-    gap: 20px;
-    
-    position:relative;
-    width: 1015px;
-    height: 100px;
-    left: 49px;
-    /* top: 260px; */
-}
+
 
 
 
