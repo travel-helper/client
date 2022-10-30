@@ -15,7 +15,6 @@ const Main = () => {
           <div>
             <img src={'img/follwing.png'} alt="logo" id=""/>
             <Link to="/following" id="following_go"  style={{ textDecoration: "none", color:"black" }}>팔로잉</Link>
-            
           </div>
           <div>
           <img src={'img/travel50.png'} alt="logo" id=""/>

@@ -6,7 +6,7 @@ import Main from "./components/views/Main";
 import Login from "./components/views/Login";
 import Join from "./components/views/Join";
 import Event from "./components/views/Event";
-
+import Write from "./components/views/Write";
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join/>}/>
-        <Route path="/write"/>
+        <Route path="/write" element={<Write/>}/>
         <Route path="/event" element={<Event/>}/>
       </Routes>
     </div>
