@@ -2,8 +2,8 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import SNSPostMain2 from './SNSPostMain2'
 function arrayPostFunction(){
-    var arrayPost = [];
-    for (var i = 0; i < 16; i++) {
+  const arrayPost = [];
+    for (let i = 0; i < 16; i++) {
       arrayPost.push(<SNSPostMain2/>)
     }
     return arrayPost

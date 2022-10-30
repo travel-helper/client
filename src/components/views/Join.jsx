@@ -1,14 +1,13 @@
 import axios from "axios";
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Collapse} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import Post from "../components/Post";
-
-
+import Post from "../Post";
 
 
 const joinBtnClick = (email,password,nickname,gender,age,address) => {
+    console.log("버튼이 눌렸당께요")
     const dataForm = new FormData();
     dataForm.append("id",email);
     dataForm.append("password",password)
@@ -16,6 +15,8 @@ const joinBtnClick = (email,password,nickname,gender,age,address) => {
     dataForm.append("gender",gender)
     dataForm.append("age",age)
     dataForm.append("address",address)
+
+    
 
     axios.post("/api/auth/signup",dataForm).then((res)=>{
         if(!!res){
@@ -44,37 +45,82 @@ const Join = () => {
         setPopup(!popup);
     }
 
-    const [successJoin,setSuccessJoin] = useState(false);
+    const [successJoin,setSuccessJoin] = useState(true);
 
-    const changePassword = (e) => {
+    const [notMatchingPW, setNotMatchingPW] = useState(false);
+
+    const [matchingPW, setMatchingPW] = useState(false);
+
+    const samePassword = (e, setNotMatchingPW, setMatchingPW, password) => {
         
+        if(e.target.value == password ){
+            setNotMatchingPW(false)
+            setMatchingPW(true);
+        }else{
+            setNotMatchingPW(true)
+            setMatchingPW(false);
+        }
+    }
+
+    
+    const changeValue = () => {
+        console.log("작동 한다께용")
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const nickname = document.getElementById("nickname").value;
+        if(email.length > 0 && password.length >= 7 && nickname.length>2&&nickname.length<15){
+            return setSuccessJoin(false);
+
+        }else{
+            return setSuccessJoin(true);
+        }
     }
     return (
         <div>
-            
+            <p className="sns_text">sns로 간편 회원가입</p>
+            <div className="sns_login_btn">
+                <button id="kakao_login_join_btn"></button>
+                <button id="naver_login_join_btn"></button>
+                <button id="facebook_login_join_btn"></button>
+            </div>
+            <hr></hr>
             <Container className="p-4 d-flex justify-content-center">
                 <Form className="w-50" >
                     <Form.Group className="mb-1" controlId="formBasicEmail" > 
                         <Form.Label>이메일</Form.Label>
-                        <Form.Control type="email"  className="bg-secondary bg-opacity-10" id="email" />
+                        <Form.Control type="email"  className="bg-secondary bg-opacity-10" id="email" onChange={changeValue}/>
                     </Form.Group>
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label>비밀번호</Form.Label>
                         <p id="font_size">영문, 숫자를 포함한 8자의 문자열을 입력해주세요.</p>
-                        <Form.Control type="password" className="bg-secondary bg-opacity-10" id="password"/>
+                        <Form.Control type="password" className="bg-secondary bg-opacity-10" id="password" onChange={changeValue}/>
                     </Form.Group>
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label>비밀번호 확인</Form.Label>
-                        <Form.Control type="password" className="bg-secondary bg-opacity-10" onChange={changePassword} id="passwordCheck" />
-                    
+                        <Form.Control type="password" className="bg-secondary bg-opacity-10" 
+                                    onChange={(e)=>{
+                                        const password = document.getElementById("password").value;
+                                        samePassword(e, setNotMatchingPW, setMatchingPW, password)}
+                                    } id="passwordCheck"
+                                    aria-controls="passwordCheck-text" aria-expanded={notMatchingPW} />
+                        <Collapse in={notMatchingPW}>
+                                <div id="passwordCheck-text" style={{color:"red"}}>
+                                비밀번호가 일치하지 않습니다.
+                                </div>
+                            </Collapse>
+                        <Collapse in={matchingPW}>
+                                <div id="passwordCheck-text" style={{color:"blue"}}>
+                                비밀번호가 일치합니다
+                                </div>
+                        </Collapse>                         
                     </Form.Group>
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label>닉네임</Form.Label>
                         <p id="font_size">2~15자 사이로 입력해주세요.</p>
-                        <Form.Control type="text" className="bg-secondary bg-opacity-10 mb-3" id="nickname"/>
+                        <Form.Control type="text" className="bg-secondary bg-opacity-10 mb-3" id="nickname" onChange={changeValue}/>
                     </Form.Group>
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
@@ -82,27 +128,27 @@ const Join = () => {
                             <Form.Label>성별</Form.Label>
                         </div>
                         
-                        <div class="form-check form-check-inline">
-                            <input  class="form-check-input" type="radio" name="gender" id="male" value="male"/>
-                            <label class="form-check-label" for="male">남성</label>
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input" type="radio" name="gender" id="male" value="male"/>
+                            <label className="form-check-label" htmlFor="male">남성</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="female"/>
-                            <label class="form-check-label" for="female">여성</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="gender" id="female" value="female"/>
+                            <label className="form-check-label" htmlFor="female">여성</label>
                         </div>
                         
                     </Form.Group>
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label>생년월일</Form.Label>
-                        <div class="bir_yy">
-                            <span class="ps_box">
-                                <input type="text" class="form-control" id="yy" placeholder="년(4자)" maxlengtn="4"/>
+                        <div className="bir_yy">
+                            <span className="ps_box">
+                                <input type="text"  className="form-control" id="yy" placeholder="년(4자)" maxlengtn="4"/>
                             </span>
                         </div>
-                        <div class="bir_mm">
+                        <div className="bir_mm">
                             <span>
-                                <select class="form-select" id="mm">
+                                <select className="form-select" id="mm">
                                     <option>월</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -119,53 +165,42 @@ const Join = () => {
                                 </select>
                             </span>
                         </div>
-                        <div class="bir_dd">
+                        <div className="bir_dd">
                             <span>
-                                <input type="text" class="form-control" id="dd" placeholder="일" maxlenth="2"/>
+                                <input type="text" className="form-control" id="dd" placeholder="일" maxlenth="2"/>
                             </span>
                         </div>
                     </Form.Group>
 
                     <Form.Group>
-                    <Form.Label>주소</Form.Label>    
-                    <div className="address_search" >
-                        <input id="address" className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
-                        <button onClick={handleComplete} className="mb-3">우편번호 찾기</button>
+                    <Form.Label >주소</Form.Label>  
+                    <button onClick={handleComplete} className="adress_serch"> 찾기</button>  
+                    <div className="address_search">
+                        <input id="address" className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address} />
+                        
                         {popup && <Post company={enroll_company} setcompany={setEnroll_company}></Post>}
                     </div>
                     </Form.Group>
 
-                    <button disabled={true} id="login_join_btn" onClick={()=>{
+                    <button disabled={successJoin} id="login_join_btn" onClick={()=>{
                         const yy = document.getElementById("yy").value
                         const mm = document.getElementById("mm").value
                         const dd = document.getElementById("dd").value
-                        
                         const age = yy+mm+dd
-
                         const getGender = document.querySelector("input[name='gender']:checked")
-
-
-
                         const email = document.getElementById("email").value
                         const password = document.getElementById("password").value
                         const nickname = document.getElementById("nickname").value
-                        
-                        
                         const address = document.getElementById("address").value
 
-                        joinBtnClick(email, password,nickname,getGender,age,address);
+                        joinBtnClick(age,getGender,email,password,nickname,address);
                     }}>
                         회원가입
                     </button>
-
-                
-                    
-                    
                 </Form>
             </Container>
             
         </div>
   );
 }
-
 export default Join
