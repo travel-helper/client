@@ -32,7 +32,7 @@ const Main = () => {
       </div>
 
       <div>
-        <label>포스트</label><label>를 팔로잉 해보세요!</label>
+        <strong style={{fontSize:"24px"}}>오늘의 </strong><strong style={{color:"#32D2C9",fontSize:"24px"}}>포스트</strong><strong style={{fontSize:"24px"}}>를 팔로잉 해보세요!</strong>
       </div>
       <div>
         <SNSPostMain1/>
