@@ -1,24 +1,36 @@
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 import { Container, Collapse} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import Post from "../Post";
 
+const axios = require('axios').default;
+axios.defaults.baseURL='http://localhost:443'; //백엔드 로컬 주소 (포트 443)
 
 const joinBtnClick = (email,password,nickname,gender,age,address) => {
-    console.log("버튼이 눌렸당께요")
-    const dataForm = new FormData();
-    dataForm.append("id",email);
-    dataForm.append("password",password)
-    dataForm.append("nickname",nickname)
-    dataForm.append("gender",gender)
-    dataForm.append("age",age)
-    dataForm.append("address",address)
+    // console.log("버튼이 눌렸당께요")
+    // const dataForm = new FormData();
+    // dataForm.append("email",email);
+    // dataForm.append("password",password)
+    // dataForm.append("nickname",nickname)
+    // dataForm.append("gender",gender)
+    // dataForm.append("age",age)
+    // dataForm.append("address",address)
 
+    const form = {
+
+        email:email,
+        password:password,
+        nickname:nickname,
+        gender:gender,
+        age:age,
+        address:address,
+
+    }
     
-
-    axios.post("/api/auth/signup",dataForm).then((res)=>{
+ console.log(form);
+    axios.post("/user/signup",form).then((res)=>{
         if(!!res){
             alert("회원가입 성공")
         }
@@ -187,13 +199,13 @@ const Join = () => {
                         const mm = document.getElementById("mm").value
                         const dd = document.getElementById("dd").value
                         const age = yy+mm+dd
-                        const getGender = document.querySelector("input[name='gender']:checked")
+                        const getGender = document.querySelector("input[name='gender']:checked").value
                         const email = document.getElementById("email").value
                         const password = document.getElementById("password").value
                         const nickname = document.getElementById("nickname").value
                         const address = document.getElementById("address").value
 
-                        joinBtnClick(age,getGender,email,password,nickname,address);
+                        joinBtnClick(email,password,nickname,getGender,age,address);
                     }}>
                         회원가입
                     </button>
