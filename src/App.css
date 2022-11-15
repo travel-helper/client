@@ -1,4 +1,4 @@
-#login_join_btn{
+.login_join_btn{
     width: 100%;
     padding: 5px;
     font-size: large;
@@ -11,24 +11,24 @@
     
 }
 
-#pw_update_btn{
+.pw_update_btn{
     border: none;
     background-color: rgba(0,0,0,0);
 }
 
-#btn_design{
+.btn_design{
     border: none;
     background-color: rgba(0,0,0,0);
     float: right;
 }
 
-#main_menu_btn_design{
+.main_menu_btn_design{
     border: none;
     background-color: rgba(0,0,0,0);
     
 }
 
-#main_login_btn{
+.main_login_btn{
     padding: 5px;
     font-size: small;
     border: none;
@@ -40,20 +40,23 @@
     border-radius: 10px;
     background: linear-gradient(to right, #32D2C9, #66FAB3);
 }
+.main_menu{
+    margin-top: 50px;
+}
 
-#main_menu > div{
+.main_menu > div{
     width: 500px;
     display: flex;
     margin: 5px auto;
 }
-#main_menu_list > div{
+.main_menu_list > div{
     width: 80px;
     margin: 5px auto;
     font-size: 16px;
     text-align: center;
     
 }
-#main_menu_list  img{
+.main_menu_list  img{
     width: 100%;
 }
 
@@ -140,21 +143,21 @@
 
 }
 
-#logo_img{
+.logo_img{
     max-width: 100%;
     max-height: 100%;
     margin: auto;
     display: block;
 }
 
-#main_logo_img{
+.main_logo_img{
     max-width: 100%;
     max-height: 100%;
     margin: auto;
     display: inline;
 }
 
-#font_size{
+.font_size{
     font-size: 12px;
 }
 
@@ -185,7 +188,7 @@
     margin-left: 10px;
 }
 
-#kakao_login_join_btn{
+.kakao_login_join_btn{
     background: #FFE248;
     margin-right: 10px;
     width: 80px;
@@ -195,7 +198,7 @@
     border-radius: 50px;
     border: none;
 }
-#naver_login_join_btn{
+.naver_login_join_btn{
     background: #47EC57;
     margin-right: 10px;
     width: 80px;
@@ -205,7 +208,7 @@
     border-radius: 50px;
     border: none;
 }
-#facebook_login_join_btn{
+.facebook_login_join_btn{
     background: #4850FF;
     width: 80px;
     height: 83.73px;
@@ -264,9 +267,7 @@ hr{
     min-height: 100vh;
 }
 
-#main_menu{
-    margin-top: 50px;
-}
+
 
 
 .col-n{
@@ -404,7 +405,7 @@ hr{
     flex-grow: 0;
 }
 
-#bell_icon{
+.bell_icon{
     /* icons8-alarm-24 1 */
     margin-top: 10px;
     width: 40px;
@@ -423,7 +424,7 @@ hr{
     flex-grow: 0;
 }
 
-#info_icon{
+.info_icon{
     /* Frame 65 */
 
 
@@ -453,7 +454,7 @@ hr{
     flex-grow: 0;
     
 }
-#write{
+.write{
     /* Frame 45 */
 
 
