@@ -27,7 +27,7 @@ const Login = () => {
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Control id="password" type="password" placeholder="비밀번호" className="bg-secondary bg-opacity-10" />
                     </Form.Group>
-                    <button id="login_join_btn" onClick={()=>{
+                    <button className="login_join_btn" onClick={()=>{
                         const email = document.getElementById("email").value
                         const password = document.getElementById("password").value
                         LoginBtnClick(email, password);
@@ -35,11 +35,11 @@ const Login = () => {
                         로그인
                     </button>
 
-                    <button id="pw_update_btn">
+                    <button className="pw_update_btn">
                         비밀번호 재설정
                     </button>
                     
-                    <button id="btn_design">
+                    <button className="btn_design">
                         <Link to="/join" id="link">회원가입</Link>
                     </button>
                     
@@ -49,9 +49,9 @@ const Login = () => {
                     <p className="sns_text">sns로 간편 로그인 및 회원가입</p>
 
                     <div className="sns_login_btn">
-                        <button id="kakao_login_join_btn"></button>
-                        <button id="naver_login_join_btn"></button>
-                        <button id="facebook_login_join_btn"></button>
+                        <button className="kakao_login_join_btn"></button>
+                        <button className="naver_login_join_btn"></button>
+                        <button className="facebook_login_join_btn"></button>
                     </div>
                     
                 </Form>

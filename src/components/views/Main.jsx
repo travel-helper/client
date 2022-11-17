@@ -10,8 +10,8 @@ const Main = () => {
         <BannerSlider/>
       </div>
 
-      <div id="main_menu">
-        <div id="main_menu_list">
+      <div className="main_menu">
+        <div className="main_menu_list">
           <div>
             <img src={'img/follwing.png'} alt="logo" id=""/>
             <Link to="/following" id="following_go"  style={{ textDecoration: "none", color:"black" }}>팔로잉</Link>

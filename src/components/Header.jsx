@@ -17,15 +17,17 @@ export const Header = () => {
   };
   return (
     <div>
-      <img src={'img/mini_logo.png'} alt="logo" id="main_logo_img"/>
+      <a href='/'>
+        <img src={'img/mini_logo.png'} alt="logo" className="main_logo_img"/>
+      </a>
       
-    <button id="main_menu_btn_design">
+    <button className="main_menu_btn_design">
       <Link to="/community" id="link">커뮤니티</Link>
     </button>
-    <button id="main_menu_btn_design">
+    <button className="main_menu_btn_design">
       <Link to="/qa" id="link">문의</Link>
     </button>
-    {OkLogin&&(<button id="main_login_btn"><Link to="/login" id="link">로그인/회원가입</Link></button>)}
+    {OkLogin&&(<button className="main_login_btn"><Link to="/login" id="link">로그인/회원가입</Link></button>)}
     {!OkLogin&&(
       <>
       <OverlayTrigger
@@ -41,11 +43,11 @@ export const Header = () => {
             </Popover>
           }
         >
-          <Button variant="secondary" id="info_icon"></Button>
+          <Button variant="secondary" className="info_icon"></Button>
         </OverlayTrigger>
 
-        <button id='bell_icon'></button>
-        <button id="write"><Link to="/write" id="link" className='write_font'><p>글쓰기</p></Link></button>
+        <button className='bell_icon'></button>
+        <button className="write"><Link to="/write" id="link" className='write_font'><p>글쓰기</p></Link></button>
       </>
     )}
     </div>

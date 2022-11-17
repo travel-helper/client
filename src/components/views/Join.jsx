@@ -9,6 +9,7 @@ const axios = require('axios').default;
 axios.defaults.baseURL='http://localhost:443'; //백엔드 로컬 주소 (포트 443)
 
 const joinBtnClick = (email,password,nickname,gender,age,address) => {
+
     // console.log("버튼이 눌렸당께요")
     // const dataForm = new FormData();
     // dataForm.append("email",email);
@@ -26,6 +27,7 @@ const joinBtnClick = (email,password,nickname,gender,age,address) => {
         gender:gender,
         age:age,
         address:address,
+
 
     }
     
@@ -76,7 +78,7 @@ const Join = () => {
 
     
     const changeValue = () => {
-        console.log("작동 한다께용")
+        
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         const nickname = document.getElementById("nickname").value;
@@ -91,9 +93,9 @@ const Join = () => {
         <div>
             <p className="sns_text">sns로 간편 회원가입</p>
             <div className="sns_login_btn">
-                <button id="kakao_login_join_btn"></button>
-                <button id="naver_login_join_btn"></button>
-                <button id="facebook_login_join_btn"></button>
+                <button className="kakao_login_join_btn"></button>
+                <button className="naver_login_join_btn"></button>
+                <button className="facebook_login_join_btn"></button>
             </div>
             <hr></hr>
             <Container className="p-4 d-flex justify-content-center">
@@ -105,7 +107,7 @@ const Join = () => {
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label>비밀번호</Form.Label>
-                        <p id="font_size">영문, 숫자를 포함한 8자의 문자열을 입력해주세요.</p>
+                        <p className="font_size">영문, 숫자를 포함한 8자의 문자열을 입력해주세요.</p>
                         <Form.Control type="password" className="bg-secondary bg-opacity-10" id="password" onChange={changeValue}/>
                     </Form.Group>
 
@@ -131,7 +133,7 @@ const Join = () => {
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label>닉네임</Form.Label>
-                        <p id="font_size">2~15자 사이로 입력해주세요.</p>
+                        <p className="font_size">2~15자 사이로 입력해주세요.</p>
                         <Form.Control type="text" className="bg-secondary bg-opacity-10 mb-3" id="nickname" onChange={changeValue}/>
                     </Form.Group>
 
@@ -194,7 +196,7 @@ const Join = () => {
                     </div>
                     </Form.Group>
 
-                    <button disabled={successJoin} id="login_join_btn" onClick={()=>{
+                    <button disabled={successJoin} className="login_join_btn" onClick={()=>{
                         const yy = document.getElementById("yy").value
                         const mm = document.getElementById("mm").value
                         const dd = document.getElementById("dd").value
