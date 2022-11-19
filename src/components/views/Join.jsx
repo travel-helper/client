@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import { Container, Collapse } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
@@ -56,7 +55,7 @@ const Join = () => {
   const [matchingPW, setMatchingPW] = useState(false);
 
   const samePassword = (e, setNotMatchingPW, setMatchingPW, password) => {
-    if (e.target.value == password) {
+    if (e.target.value === password) {
       setNotMatchingPW(false);
       setMatchingPW(true);
     } else {
