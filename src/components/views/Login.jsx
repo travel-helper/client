@@ -1,27 +1,23 @@
 import axios from "axios";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { login } from "../../_actions/userAction";
 
-const LoginBtnClick = (email, password) => {
-  // const dataForm = new FormData();
-  // dataForm.append("id",email);
-  // dataForm.append("password",password)
-
-  const form = { email, password };
-  axios
-    .post("/user/login", form)
-    .then((res) => {
-      if (!!res) {
-        alert("로그인 성공");
-      }
-    })
-    .catch((res) => {
-      alert(res + "에러 발생");
-    });
-};
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const LoginBtnClick = (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    console.log(email);
+    dispatch(login({ email, password }));
+    console.log(email);
+  };
+
   return (
     <Container className="login_page">
       <Form className="w-50">
@@ -42,14 +38,7 @@ const Login = () => {
             className="bg-secondary bg-opacity-10"
           />
         </Form.Group>
-        <button
-          className="login_join_btn"
-          onClick={() => {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            LoginBtnClick(email, password);
-          }}
-        >
+        <button className="login_join_btn" onClick={LoginBtnClick}>
           로그인
         </button>
 
