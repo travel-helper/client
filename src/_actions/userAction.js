@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://server-production-73a6.up.railway.app"; //백엔드 로컬 주소 (포트 443)
+axios.defaults.baseURL = "https://server-production-73a6.up.railway.app";
 axios.defaults.withCredentials = true; // front, backend 간 쿠키공유
 
 export const login = createAsyncThunk(
