@@ -28,7 +28,7 @@ const Login = () => {
             className="bg-secondary bg-opacity-10"
             id="email"
             type="text"
-            placeholder="test@email.com"
+            placeholder="이메일"
             {...register("email", {
               required: "이메일은 필수 입력입니다.",
               pattern: {
@@ -44,7 +44,7 @@ const Login = () => {
             className="bg-secondary bg-opacity-10"
             id="password"
             type="password"
-            placeholder="****************"
+            placeholder="비밀번호"
             {...register("password", {
               required: "비밀번호는 필수 입력입니다.",
               minLength: {
