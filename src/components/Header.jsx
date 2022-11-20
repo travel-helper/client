@@ -27,12 +27,6 @@ export const Header = () => {
         </Link>
       </button>
       {me ? (
-        <button className="main_login_btn">
-          <Link to="/login" id="link">
-            로그인/회원가입
-          </Link>
-        </button>
-      ) : (
         <>
           <OverlayTrigger
             trigger="click"
@@ -66,6 +60,12 @@ export const Header = () => {
             </Link>
           </button>
         </>
+      ) : (
+        <button className="main_login_btn">
+          <Link to="/login" id="link">
+            로그인/회원가입
+          </Link>
+        </button>
       )}
     </div>
   );
