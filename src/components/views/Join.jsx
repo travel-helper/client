@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Collapse } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import AddressSearch from "../AddressSearch";
@@ -17,16 +17,15 @@ const Join = () => {
     email: Yup.string()
       .email("올바르지 않은 이메일 형식 입니다.")
       .required("이메일은 필수 입력 항목 입니다."),
-    nickname: Yup.string().required("닉네임은 필수 입력 항목 입니다."),
 
     password: Yup.string()
-      .required("닉네임은 필수 입력 항목 입니다.")
+      .required("비밀번호는 필수 입력 항목 입니다.")
       .matches(
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/,
         "숫자와 특수문자를 포함한 8~20자의 영문을 입력해주세요"
       ),
     nickname: Yup.string()
-      .required("비밀번호는 필수 입력 항목 입니다.")
+      .required("닉네임은 필수 입력 항목 입니다.")
       .min(2, "너무 짧습니다.")
       .max(15, "너무 깁니다."),
     password_check: Yup.string()
