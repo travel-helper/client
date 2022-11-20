@@ -14,7 +14,7 @@ const Login = () => {
     formState: { isSubmitting, errors }, //form의 상태
     //isSubmitting -> 제출중
     //errors -> 유효성 훼손
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
     dispatch(login(data));
@@ -37,9 +37,9 @@ const Login = () => {
               },
             })}
           />
+          {errors.email && <small role="alert">{errors.email.message}</small>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          {errors.email && <small role="alert">{errors.email.message}</small>}
           <Form.Control
             className="bg-secondary bg-opacity-10"
             id="password"
@@ -53,10 +53,11 @@ const Login = () => {
               },
             })}
           />
+          {errors.password && (
+            <small role="alert">{errors.password.message}</small>
+          )}
         </Form.Group>
-        {errors.password && (
-          <small role="alert">{errors.password.message}</small>
-        )}
+
         <button
           className="login_join_btn"
           type="submit"
