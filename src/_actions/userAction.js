@@ -17,6 +17,11 @@ export const login = createAsyncThunk(
   }
 );
 
+export const logout = createAsyncThunk("user/logout", async () => {
+  const response = await axios.post("/user/logout");
+  return response.data;
+});
+
 export const signup = createAsyncThunk(
   "user/signup",
   async (data, { rejectWithValue }) => {

@@ -1,5 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../_actions/userAction";
 // import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 // import { Overlay, Popover, Button, OverlayTrigger } from "react-bootstrap";
@@ -7,15 +8,8 @@ import { Popover, Button, OverlayTrigger } from "react-bootstrap";
 import "bootstrap/dist/js/bootstrap.bundle";
 
 export const Header = () => {
-  const [OkLogin] = useState(true);
-  // const [show, setShow] = useState(false);
-  // const [target, setTarget] = useState(null);
-  // const ref = useRef(null);
-
-  // const handleClick = (event) => {
-  //   setShow(!show);
-  //   setTarget(event.target);
-  // };
+  const dispatch = useDispatch();
+  const { me } = useSelector((state) => state.user);
   return (
     <div>
       <a href="/">
@@ -32,14 +26,13 @@ export const Header = () => {
           문의
         </Link>
       </button>
-      {OkLogin && (
+      {me ? (
         <button className="main_login_btn">
           <Link to="/login" id="link">
             로그인/회원가입
           </Link>
         </button>
-      )}
-      {!OkLogin && (
+      ) : (
         <>
           <OverlayTrigger
             trigger="click"
@@ -50,7 +43,13 @@ export const Header = () => {
                   <button className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6">
                     마이페이지
                   </button>
-                  <button className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6">
+                  <button
+                    className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6"
+                    onClick={() => {
+                      console.log("clicked");
+                      dispatch(logout());
+                    }}
+                  >
                     로그아웃
                   </button>
                 </Popover.Body>
