@@ -1,7 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://server-production-73a6.up.railway.app";
+// axios.defaults.baseURL = "https://server-production-73a6.up.railway.app";
+axios.defaults.baseURL = "http://localhost:443";
 axios.defaults.withCredentials = true; // front, backend 간 쿠키공유
 
 export const login = createAsyncThunk(

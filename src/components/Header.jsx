@@ -12,7 +12,7 @@ export const Header = () => {
 
   useEffect(() => {
     dispatch(loadMyInfo());
-  }, []);
+  }, [dispatch]);
 
   const { me } = useSelector((state) => state.user);
   return (
