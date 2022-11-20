@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { login, signup } from "../_actions/userAction";
+import { login, signup, logout } from "../_actions/userAction";
 
 // 기본 state
 export const initialState = {
@@ -57,21 +57,21 @@ const userSlice = createSlice({
         state.loginLoading = false;
         state.loginError = action.payload;
       })
-      //   // logout
-      //   .addCase(logout.pending, (state) => {
-      //     state.logoutLoading = true;
-      //     state.logoutDone = false;
-      //     state.logoutError = null;
-      //   })
-      //   .addCase(logout.fulfilled, (state) => {
-      //     state.logoutLoading = false;
-      //     state.logoutDone = true;
-      //     state.me = null;
-      //   })
-      //   .addCase(logout.rejected, (state, action) => {
-      //     state.logoutLoading = false;
-      //     state.logoutError = action.payload;
-      //   })
+      // logout
+      .addCase(logout.pending, (state) => {
+        state.logoutLoading = true;
+        state.logoutDone = false;
+        state.logoutError = null;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.logoutLoading = false;
+        state.logoutDone = true;
+        state.me = null;
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.logoutLoading = false;
+        state.logoutError = action.payload;
+      })
       // signup
       .addCase(signup.pending, (state) => {
         state.signupLoading = true;
