@@ -15,9 +15,9 @@ export const initialState = {
   loginLoading: false, // 로그인 시도중
   loginDone: false,
   loginError: null,
-  //   logoutLoading: false, // 로그아웃 시도중
-  //   logoutDone: false,
-  //   logoutError: null,
+  logoutLoading: false, // 로그아웃 시도중
+  logoutDone: false,
+  logoutError: null,
   signupLoading: false, // 회원가입 시도중
   signupDone: false,
   signupError: null,
