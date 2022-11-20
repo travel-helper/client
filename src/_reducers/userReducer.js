@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { login, signup, logout } from "../_actions/userAction";
+import { login, signup, logout, loadMyInfo } from "../_actions/userAction";
 
 // 기본 state
 export const initialState = {
   me: null, // 내 정보
   //   userInfo: null, // 유저 정보
-  //   loadMyInfoLoading: false, // 로그인 정보 조회
-  //   loadMyInfoDone: false,
-  //   loadMyInfoError: null,
+  loadMyInfoLoading: false, // 로그인 정보 조회
+  loadMyInfoDone: false,
+  loadMyInfoError: null,
   //   loadUserLoading: false, // 유저 정보 조회
   //   loadUserDone: false,
   //   loadUserError: null,
@@ -86,21 +86,21 @@ const userSlice = createSlice({
         state.signupLoading = false;
         state.signupError = action.payload;
       })
-      //   // loadMyInfo
-      //   .addCase(loadMyInfo.pending, (state) => {
-      //     state.loadMyInfoLoading = true;
-      //     state.loadMyInfoDone = false;
-      //     state.loadMyInfoError = null;
-      //   })
-      //   .addCase(loadMyInfo.fulfilled, (state, action) => {
-      //     state.loadMyInfoLoading = false;
-      //     state.loadMyInfoDone = true;
-      //     state.me = action.payload;
-      //   })
-      //   .addCase(loadMyInfo.rejected, (state, action) => {
-      //     state.loadMyInfoLoading = false;
-      //     state.loadMyInfoError = action.payload;
-      //   })
+      // loadMyInfo
+      .addCase(loadMyInfo.pending, (state) => {
+        state.loadMyInfoLoading = true;
+        state.loadMyInfoDone = false;
+        state.loadMyInfoError = null;
+      })
+      .addCase(loadMyInfo.fulfilled, (state, action) => {
+        state.loadMyInfoLoading = false;
+        state.loadMyInfoDone = true;
+        state.me = action.payload;
+      })
+      .addCase(loadMyInfo.rejected, (state, action) => {
+        state.loadMyInfoLoading = false;
+        state.loadMyInfoError = action.payload;
+      })
       //   // loadUser
       //   .addCase(loadUser.pending, (state) => {
       //     state.loadUserLoading = true;

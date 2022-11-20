@@ -16,6 +16,11 @@ export const login = createAsyncThunk(
     }
   }
 );
+export const loadMyInfo = createAsyncThunk("user/loadMyInfo", async () => {
+  //로그인 유지를 위한 유저 정보 요청 함수
+  const response = await axios.get("/user");
+  return response.data;
+});
 
 export const logout = createAsyncThunk("user/logout", async () => {
   const response = await axios.post("/user/logout");
