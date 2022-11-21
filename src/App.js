@@ -8,17 +8,16 @@ import Join from "./components/views/Join";
 import Event from "./components/views/Event";
 import Write from "./components/views/Write";
 
-
 function App() {
-    return (
+  return (
     <div>
-        <Header/>
-        <Routes>
+      <Header />
+      <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/join" element={<Join/>}/>
-        <Route path="/write" element={<Write/>}/>
-        <Route path="/event" element={<Event/>}/>
+        <Route path="/join" element={<Join />} />
+        <Route path="/write" element={<Write />} />
+        <Route path="/event" element={<Event />} />
       </Routes>
     </div>
   );

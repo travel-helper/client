@@ -15,12 +15,12 @@ export const Header = () => {
   }, [dispatch]);
 
   const { me } = useSelector((state) => state.user);
+
   return (
     <div>
       <a href="/">
         <img src={"img/mini_logo.png"} alt="logo" className="main_logo_img" />
       </a>
-
       <button className="main_menu_btn_design">
         <Link to="/community" id="link">
           커뮤니티
