@@ -1,5 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchUser, requestLogin, requestSignUp } from "../api/api";
+import {
+  fetchUser,
+  requestLogin,
+  requestSignUp,
+  requestlogout,
+} from "../api/api";
 
 export const login = createAsyncThunk(
   "user/login",
@@ -16,11 +21,14 @@ export const login = createAsyncThunk(
 
 export const loadMyInfo = createAsyncThunk("user/loadMyInfo", async () => {
   //로그인 유지를 위한 유저 정보 요청 함수
-  return fetchUser();
+  const result = await fetchUser();
+  return result;
 });
 
 export const logout = createAsyncThunk("user/logout", async () => {
-  return logout();
+  console.log("call logout");
+  const result = await requestlogout();
+  return result;
 });
 
 export const signup = createAsyncThunk(

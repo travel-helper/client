@@ -7,7 +7,7 @@ import { login } from "../../_actions/userAction";
 import { useForm } from "react-hook-form";
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     register, //유효성 검사
@@ -15,11 +15,14 @@ const Login = () => {
     formState: { isSubmitting, errors }, //form의 상태
     //isSubmitting -> 제출중
     //errors -> 유효성 훼손
-  } = useForm({ mode: "onChange", defaultValues: {email: 'fkdldjsaos87@naver.com', password: 'tkfkdgo1!'} });
+  } = useForm({
+    mode: "onChange",
+    defaultValues: { email: "fkdldjsaos87@naver.com", password: "tkfkdgo1!" },
+  });
 
   const onSubmit = (data) => {
     dispatch(login(data));
-    navigate('/')
+    navigate("/");
   };
 
   return (

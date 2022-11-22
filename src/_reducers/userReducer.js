@@ -5,6 +5,7 @@ import { login, signup, logout, loadMyInfo } from "../_actions/userAction";
 // 기본 state
 export const initialState = {
   me: null, // 내 정보
+  isLogined: false,
   //   userInfo: null, // 유저 정보
   loadMyInfoLoading: false, // 로그인 정보 조회
   loadMyInfoDone: false,
@@ -50,6 +51,7 @@ const userSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.loginLoading = false;
+        state.isLogined = true;
         state.me = action.payload;
         state.loginDone = true;
       })
@@ -65,6 +67,7 @@ const userSlice = createSlice({
       })
       .addCase(logout.fulfilled, (state) => {
         state.logoutLoading = false;
+        state.isLogined = false;
         state.logoutDone = true;
         state.me = null;
       })

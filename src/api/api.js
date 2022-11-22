@@ -15,8 +15,9 @@ export const fetchUser = async (params) => {
   return response.data;
 };
 
-export const logout = async (params) => {
+export const requestlogout = async (params) => {
   const response = await axios.post("/user/logout");
+  console.log("call requestlogout");
   return response.data;
 };
 
