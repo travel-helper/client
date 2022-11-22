@@ -1,205 +1,202 @@
-import axios from "axios";
-import { Container, Collapse} from "react-bootstrap";
+import React from "react";
+import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import Post from "../Post";
+import AddressSearch from "../AddressSerch";
+import { signup } from "../../_actions/userAction";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-
-const joinBtnClick = (email,password,nickname,gender,age,address) => {
-    console.log("버튼이 눌렸당께요");
-    const dataForm = new FormData();
-    dataForm.append("id",email);
-    dataForm.append("password",password)
-    dataForm.append("nickname",nickname)
-    dataForm.append("gender",gender)
-    dataForm.append("age",age)
-    dataForm.append("address",address)
-
-    
-
-    axios.post("/api/auth/signup",dataForm).then((res)=>{
-        if(!!res){
-            alert("회원가입 성공")
-        }
-    }).catch((res)=>{
-        alert(res+"에러 발생")
-    })
-    
-}
+import * as Yup from "yup";
 const Join = () => {
-    const [enroll_company, setEnroll_company] = useState({
-        address:'',
-    });
-    
-    const [popup, setPopup] = useState(false);
-    
-    const handleInput = (e) => {
-        setEnroll_company({
-            ...enroll_company,
-            [e.target.name]:e.target.value,
-        })
-    }
-    
-    const handleComplete = (data) => {
-        setPopup(!popup);
-    }
+  const dispatch = useDispatch();
 
-    const [successJoin,setSuccessJoin] = useState(true);
+  const SignupSchema = Yup.object().shape({
+    //각 란의 유효성 검사 형식
+    email: Yup.string()
+      .email("올바르지 않은 이메일 형식 입니다.")
+      .required("이메일은 필수 입력 항목 입니다."),
 
-    const [notMatchingPW, setNotMatchingPW] = useState(false);
+    password: Yup.string()
+      .required("비밀번호는 필수 입력 항목 입니다.")
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/,
+        "숫자와 특수문자를 포함한 8~20자의 영문을 입력해주세요"
+      ),
+    nickname: Yup.string()
+      .required("닉네임은 필수 입력 항목 입니다.")
+      .min(2, "너무 짧습니다.")
+      .max(15, "너무 깁니다."),
+    password_check: Yup.string()
+      .oneOf([Yup.ref("password")], "비밀번호가 일치 하지 않습니다.")
+      .required("비밀번호 체크는 필수 입력 항목 입니다."),
+    birth: Yup.string()
+      .required("생년월일은 필수 입력 항목 입니다.")
+      .matches(
+        /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/,
+        "생년월일 형식을 지켜주세요 ex) 19990427"
+      ),
+  });
 
-    const [matchingPW, setMatchingPW] = useState(false);
+  const {
+    register, //유효성 검사, submit시 제출할 항목 명시
+    handleSubmit, //submit함수를 인자로 받는 함수
+    formState: { isSubmitting, errors }, //form의 상태
+    //isSubmitting -> 제출중
+    //errors -> 유효성 훼손
+  } = useForm({
+    resolver: yupResolver(SignupSchema),
+    mode: "onChange", //입력시마다 유효성 체크
+  });
 
-    const samePassword = (e, setNotMatchingPW, setMatchingPW, password) => {
-        
-        if(e.target.value == password ){
-            setNotMatchingPW(false)
-            setMatchingPW(true);
-        }else{
-            setNotMatchingPW(true)
-            setMatchingPW(false);
-        }
-    }
+  const onSubmit = (data) => {
+    dispatch(signup(data));
+  };
 
-    
-    const changeValue = () => {
-        
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const nickname = document.getElementById("nickname").value;
-        if(email.length > 0 && password.length >= 7 && nickname.length>2&&nickname.length<15){
-            return setSuccessJoin(false);
+  const [enroll_company, setEnroll_company] = useState({
+    address: "",
+  });
+  const [popup, setPopup] = useState(false);
 
-        }else{
-            return setSuccessJoin(true);
-        }
-    }
-    return (
-        <div>
-            <p className="sns_text">sns로 간편 회원가입</p>
-            <div className="sns_login_btn">
-                <button className="kakao_login_join_btn"></button>
-                <button className="naver_login_join_btn"></button>
-                <button className="facebook_login_join_btn"></button>
+  const handleComplete = (data) => {
+    setPopup(!popup);
+  };
+  //주소 찾기 팝업 stare, 함수
+
+  return (
+    <div>
+      <p className="sns_text">sns로 간편 회원가입</p>
+      <div className="sns_login_btn">
+        <button className="kakao_login_join_btn"></button>
+        <button className="naver_login_join_btn"></button>
+        <button className="facebook_login_join_btn"></button>
+      </div>
+      <hr></hr>
+      <Container className="p-4 d-flex justify-content-center">
+        <Form className="w-50" onSubmit={handleSubmit(onSubmit)}>
+          <Form.Group className="mb-1" controlId="formBasicEmail">
+            <Form.Label>이메일</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="example@naver.com"
+              className="bg-secondary bg-opacity-10"
+              id="email"
+              {...register("email")}
+            />
+            {errors.email && <small role="alert">{errors.email.message}</small>}
+          </Form.Group>
+
+          <Form.Group className="mb-1" controlId="formBasicPassword">
+            <Form.Label>비밀번호</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="숫자와 특수문자를 포함한 8~20자의 영문을 입력해주세요"
+              className="bg-secondary bg-opacity-10"
+              id="password"
+              {...register("password")}
+            />
+            {errors.password && (
+              <small role="alert">{errors.password.message}</small>
+            )}
+          </Form.Group>
+
+          <Form.Group className="mb-1" controlId="formBasicPassword">
+            <Form.Label>비밀번호 확인</Form.Label>
+            <Form.Control
+              type="password"
+              className="bg-secondary bg-opacity-10"
+              id="password_check"
+              {...register("password_check")}
+            />
+            {errors.password_check && (
+              <small role="alert">{errors.password_check.message}</small>
+            )}
+          </Form.Group>
+
+          <Form.Group className="mb-1" controlId="formBasicPassword">
+            <Form.Label>닉네임</Form.Label>
+            <Form.Control
+              type="text"
+              className="bg-secondary bg-opacity-10 mb-3"
+              id="nickname"
+              placeholder="2~15자 사이로 입력해주세요"
+              {...register("nickname")}
+            />
+            {errors.nickname && (
+              <small role="alert">{errors.nickname.message}</small>
+            )}
+          </Form.Group>
+
+          <Form.Group className="mb-1" controlId="formBasicPassword">
+            <Form.Label>성별</Form.Label>
+
+            <div key={"inline-radio"}>
+              <Form.Check
+                inline
+                checked
+                name="gender"
+                type="radio"
+                label="남자"
+                value="male"
+                {...register("gender")}
+              />
+              <Form.Check
+                inline
+                name="gender"
+                type="radio"
+                label="여자"
+                value="female"
+                {...register("gender")}
+              />
             </div>
-            <hr></hr>
-            <Container className="p-4 d-flex justify-content-center">
-                <Form className="w-50" >
-                    <Form.Group className="mb-1" controlId="formBasicEmail" > 
-                        <Form.Label>이메일</Form.Label>
-                        <Form.Control type="email"  className="bg-secondary bg-opacity-10" id="email" onChange={changeValue}/>
-                    </Form.Group>
+          </Form.Group>
 
-                    <Form.Group className="mb-1" controlId="formBasicPassword">
-                        <Form.Label>비밀번호</Form.Label>
-                        <p className="font_size">영문, 숫자를 포함한 8자의 문자열을 입력해주세요.</p>
-                        <Form.Control type="password" className="bg-secondary bg-opacity-10" id="password" onChange={changeValue}/>
-                    </Form.Group>
+          <Form.Group className="mb-1" controlId="formBasicEmail">
+            <Form.Label>생년월일</Form.Label>
+            <Form.Control
+              className="bg-secondary bg-opacity-10"
+              id="birth"
+              type="text"
+              placeholder="YYYYMMDD"
+              {...register("birth")}
+            />
 
-                    <Form.Group className="mb-1" controlId="formBasicPassword">
-                        <Form.Label>비밀번호 확인</Form.Label>
-                        <Form.Control type="password" className="bg-secondary bg-opacity-10" 
-                                    onChange={(e)=>{
-                                        const password = document.getElementById("password").value;
-                                        samePassword(e, setNotMatchingPW, setMatchingPW, password)}
-                                    } id="passwordCheck"
-                                    aria-controls="passwordCheck-text" aria-expanded={notMatchingPW} />
-                        <Collapse in={notMatchingPW}>
-                                <div id="passwordCheck-text" style={{color:"red"}}>
-                                비밀번호가 일치하지 않습니다.
-                                </div>
-                            </Collapse>
-                        <Collapse in={matchingPW}>
-                                <div id="passwordCheck-text" style={{color:"blue"}}>
-                                비밀번호가 일치합니다
-                                </div>
-                        </Collapse>                         
-                    </Form.Group>
+            {errors.birth && <small role="alert">{errors.birth.message}</small>}
+          </Form.Group>
 
-                    <Form.Group className="mb-1" controlId="formBasicPassword">
-                        <Form.Label>닉네임</Form.Label>
-                        <p className="font_size">2~15자 사이로 입력해주세요.</p>
-                        <Form.Control type="text" className="bg-secondary bg-opacity-10 mb-3" id="nickname" onChange={changeValue}/>
-                    </Form.Group>
+          <Form.Group>
+            <Form.Label>주소</Form.Label>
+            <button onClick={handleComplete} className="adress_serch">
+              주소 찾기
+            </button>
 
-                    <Form.Group className="mb-1" controlId="formBasicPassword">
-                        <div>
-                            <Form.Label>성별</Form.Label>
-                        </div>
-                        
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" type="radio" name="gender" id="male" value="male"/>
-                            <label className="form-check-label" htmlFor="male">남성</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="gender" id="female" value="female"/>
-                            <label className="form-check-label" htmlFor="female">여성</label>
-                        </div>
-                        
-                    </Form.Group>
-
-                    <Form.Group className="mb-1" controlId="formBasicPassword">
-                        <Form.Label>생년월일</Form.Label>
-                        <div className="bir_yy">
-                            <span className="ps_box">
-                                <input type="text"  className="form-control" id="yy" placeholder="년(4자)" maxlengtn="4"/>
-                            </span>
-                        </div>
-                        <div className="bir_mm">
-                            <span>
-                                <select className="form-select" id="mm">
-                                    <option>월</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                </select>
-                            </span>
-                        </div>
-                        <div className="bir_dd">
-                            <span>
-                                <input type="text" className="form-control" id="dd" placeholder="일" maxlenth="2"/>
-                            </span>
-                        </div>
-                    </Form.Group>
-
-                    <Form.Group>
-                    <Form.Label >주소</Form.Label>  
-                    <button onClick={handleComplete} className="adress_serch"> 찾기</button>  
-                    <div className="address_search">
-                        <input id="address" className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address} />
-                        
-                        {popup && <Post company={enroll_company} setcompany={setEnroll_company}></Post>}
-                    </div>
-                    </Form.Group>
-
-                    <button disabled={successJoin} className="login_join_btn" onClick={()=>{
-                        const yy = document.getElementById("yy").value
-                        const mm = document.getElementById("mm").value
-                        const dd = document.getElementById("dd").value
-                        const age = yy+mm+dd
-                        const getGender = document.querySelector("input[name='gender']:checked")
-                        const email = document.getElementById("email").value
-                        const password = document.getElementById("password").value
-                        const nickname = document.getElementById("nickname").value
-                        const address = document.getElementById("address").value
-
-                        joinBtnClick(age,getGender,email,password,nickname,address);
-                    }}>
-                        회원가입
-                    </button>
-                </Form>
-            </Container>
-            
-        </div>
+            <Form.Control
+              className="bg-secondary bg-opacity-10"
+              id="address"
+              type="text"
+              placeholder="[주소 찾기]를 눌러 입력해주세요"
+              value={enroll_company.address}
+              {...register("address")}
+            />
+            {popup && (
+              <AddressSearch
+                company={enroll_company}
+                setcompany={setEnroll_company}
+              ></AddressSearch>
+            )}
+          </Form.Group>
+          <Form.Label> </Form.Label>
+          <button
+            disabled={isSubmitting}
+            className="login_join_btn"
+            type="submit"
+          >
+            회원가입
+          </button>
+        </Form>
+      </Container>
+    </div>
   );
-}
-export default Join
+};
+export default Join;

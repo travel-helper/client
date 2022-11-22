@@ -1,4 +1,6 @@
+import React from 'react'
 import Banner from '../event/Banner';
+
 
 const Event = () =>{
   return (
