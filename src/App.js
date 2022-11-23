@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
@@ -10,17 +11,16 @@ import Write from "./components/views/Write";
 import QA from "./components/views/QA";
 import Community from "./components/views/Community";
 
-
 function App() {
-    return (
+  return (
     <div>
-        <Header/>
-        <Routes>
+      <Header />
+      <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/join" element={<Join/>}/>
-        <Route path="/write" element={<Write/>}/>
-        <Route path="/event" element={<Event/>}/>
+        <Route path="/join" element={<Join />} />
+        <Route path="/write" element={<Write />} />
+        <Route path="/event" element={<Event />} />
         <Route path="/qa" element={<QA/>}/>
         <Route path="/community" element={<Community/>}/>
       </Routes>

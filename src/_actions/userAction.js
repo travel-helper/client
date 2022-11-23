@@ -1,39 +1,42 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-// axios.defaults.baseURL = "https://server-production-73a6.up.railway.app";
-axios.defaults.baseURL = "http://localhost:443";
-axios.defaults.withCredentials = true; // front, backend 간 쿠키공유
+import {
+  fetchUser,
+  requestLogin,
+  requestSignUp,
+  requestlogout,
+} from "../api/api";
 
 export const login = createAsyncThunk(
   "user/login",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post("/user/login", data);
-      console.log(response.data);
-      return response.data;
+      const result = await requestLogin(data);
+
+      return result;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
   }
 );
+
 export const loadMyInfo = createAsyncThunk("user/loadMyInfo", async () => {
   //로그인 유지를 위한 유저 정보 요청 함수
-  const response = await axios.get("/user");
-  return response.data;
+  const result = await fetchUser();
+  return result;
 });
 
 export const logout = createAsyncThunk("user/logout", async () => {
-  const response = await axios.post("/user/logout");
-  return response.data;
+  console.log("call logout");
+  const result = await requestlogout();
+  return result;
 });
 
 export const signup = createAsyncThunk(
   "user/signup",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post("/user/signup", data);
-      return response.data;
+      const result = await requestSignUp(data);
+      return result;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }

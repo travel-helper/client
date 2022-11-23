@@ -1,26 +1,33 @@
 import React, { useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout, loadMyInfo } from "../_actions/userAction";
 // import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { Overlay, Popover, Button, OverlayTrigger } from "react-bootstrap";
-import { Popover, Button, OverlayTrigger } from "react-bootstrap";
-import "bootstrap/dist/js/bootstrap.bundle";
+import { Button, OverlayTrigger, Popover } from "react-bootstrap";
+
+import { useQuery, useQueryClient } from "react-query";
+import { fetchUser } from "../api/api";
 
 export const Header = () => {
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const queryClient = useQueryClient();
+  // const { isLogined } = useSelector((state) => state.user);
+  // console.log(isLogined);
+  // const { data, isLoading, isError } = useQuery(["user"], fetchUser, {
+  //   enabled: !!isLogined,
+  // });
 
+  const { me } = useSelector((state) => state.user);
   useEffect(() => {
     dispatch(loadMyInfo());
   }, [dispatch]);
-
-  const { me } = useSelector((state) => state.user);
   return (
     <div>
       <a href="/">
         <img src={"img/mini_logo.png"} alt="logo" className="main_logo_img" />
       </a>
-
       <button className="main_menu_btn_design">
         <Link to="/community" id="link">
           커뮤니티
@@ -32,6 +39,7 @@ export const Header = () => {
         </Link>
       </button>
       {me ? (
+        // {isLogined ? (
         <>
           <OverlayTrigger
             trigger="click"
@@ -46,6 +54,7 @@ export const Header = () => {
                     className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6"
                     onClick={() => {
                       console.log("clicked");
+
                       dispatch(logout());
                     }}
                   >
