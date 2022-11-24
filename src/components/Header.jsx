@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, loadMyInfo } from "../_actions/userAction";
 // import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { Overlay, Popover, Button, OverlayTrigger } from "react-bootstrap";
 import { Button, OverlayTrigger, Popover } from "react-bootstrap";
 
-import { useQuery, useQueryClient } from "react-query";
-import { fetchUser } from "../api/api";
+// import { useQuery, useQueryClient } from "react-query";
+// import { fetchUser } from "../api/api";
 
 export const Header = () => {
   const dispatch = useDispatch();
