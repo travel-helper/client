@@ -8,6 +8,8 @@ import Login from "./components/views/Login";
 import Join from "./components/views/Join";
 import Event from "./components/views/Event";
 import Write from "./components/views/Write";
+import QA from "./components/views/QA";
+import Community from "./components/views/Community";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/join" element={<Join />} />
         <Route path="/write" element={<Write />} />
         <Route path="/event" element={<Event />} />
+        <Route path="/qa" element={<QA/>}/>
+        <Route path="/community" element={<Community/>}/>
       </Routes>
     </div>
   );

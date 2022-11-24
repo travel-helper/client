@@ -1,8 +1,11 @@
-import React from "react";
-import styled,{css} from 'styled-components'
-
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
 
 const SNSPostMain2 = () => {
+  const [isListHover, setIsListHover] = useState(false);
+  const heart = require("../../image/heart.png");
+  const pinkHeart = require("../../image/heart_hover.png");
+
   return (
     <div className="col">
       <div style={{ display: "flex" }}>
@@ -46,12 +49,22 @@ const SNSPostMain2 = () => {
           focusable="false"
         >
           <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#55595c"></rect>
-          <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-            이미지
-          </text>
+          <rect width="100%" height="100%" fill="#D9D9D9"></rect>
         </svg>
         <div className="card-body">
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="btn-group">
+              <button
+                onMouseOver={() => setIsListHover(true)}
+                onMouseOut={() => setIsListHover(false)}
+              >
+                <img src={isListHover ? pinkHeart : heart} alt="like" />
+              </button>
+              <button>
+                <img src={"img/comment.png"} alt="like" />
+              </button>
+            </div>
+          </div>
           <p className="card-text">
             <font style={{ verticalAlign: "inherit" }}>
               <font style={{ verticalAlign: "inherit" }}>
@@ -59,31 +72,6 @@ const SNSPostMain2 = () => {
               </font>
             </font>
           </p>
-          <div className="d-flex justify-content-between align-items-center">
-            <div className="btn-group">
-              <button
-                type="button"
-                className="btn btn-sm btn-outline-secondary"
-              >
-                <font style={{ verticalAlign: "inherit" }}>
-                  <font style={{ verticalAlign: "inherit" }}>보여 주다</font>
-                </font>
-              </button>
-              <button
-                type="button"
-                className="btn btn-sm btn-outline-secondary"
-              >
-                <font style={{ verticalAlign: "inherit" }}>
-                  <font style={{ verticalAlign: "inherit" }}>수정하다</font>
-                </font>
-              </button>
-            </div>
-            <small className="text-muted">
-              <font style={{ verticalAlign: "inherit" }}>
-                <font style={{ verticalAlign: "inherit" }}>9분</font>
-              </font>
-            </small>
-          </div>
         </div>
       </div>
     </div>
@@ -99,10 +87,10 @@ const Button = styled.button`
   color: palevioletred;
   margin: 0.5em 1em;
   padding: 0.25em 1em;
-
-  ${props => props.primary && css`
-    background: palevioletred;
-    color: white;
-  `}
+  ${(props) =>
+    props.primary &&
+    css`
+      background: palevioletred;
+      color: white;
+    `}
 `;
-

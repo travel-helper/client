@@ -16,7 +16,6 @@ const Main = () => {
             <img src={"img/follwing.png"} alt="logo" id="" />
             <Link
               to="/following"
-              id="following_go"
               style={{ textDecoration: "none", color: "black" }}
             >
               팔로잉
@@ -26,7 +25,6 @@ const Main = () => {
             <img src={"img/travel50.png"} alt="logo" id="" />
             <Link
               to="/travel"
-              id="travel_go"
               style={{ textDecoration: "none", color: "black" }}
             >
               여행
@@ -36,7 +34,6 @@ const Main = () => {
             <img src={"img/event64.png"} alt="logo" id="" />
             <Link
               to="/event"
-              id="event_go"
               style={{ textDecoration: "none", color: "black" }}
             >
               이벤트
@@ -44,11 +41,7 @@ const Main = () => {
           </div>
           <div>
             <img src={"img/qna.png"} alt="logo" id="" />
-            <Link
-              to="/qa"
-              id="qa_go"
-              style={{ textDecoration: "none", color: "black" }}
-            >
+            <Link to="/qa" style={{ textDecoration: "none", color: "black" }}>
               문의
             </Link>
           </div>

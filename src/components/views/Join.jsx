@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import AddressSearch from "../AddressSearch";
+import AddressSearch from "../AddressSerch";
 import { signup } from "../../_actions/userAction";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -199,4 +199,5 @@ const Join = () => {
     </div>
   );
 };
+
 export default Join;
