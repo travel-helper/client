@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
+// import styled, { css } from "styled-components";
 
 const SNSPostMain2 = () => {
   const [isListHover, setIsListHover] = useState(false);
