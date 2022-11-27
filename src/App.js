@@ -10,6 +10,7 @@ import Event from "./components/views/Event";
 import Write from "./components/views/Write";
 import QA from "./components/views/QA";
 import Community from "./components/views/Community";
+import Mypage from "./components/views/Mypage";
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
         <Route path="/join" element={<Join />} />
         <Route path="/write" element={<Write />} />
         <Route path="/event" element={<Event />} />
-        <Route path="/qa" element={<QA/>}/>
-        <Route path="/community" element={<Community/>}/>
+        <Route path="/qa" element={<QA />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </div>
   );

@@ -48,7 +48,12 @@ export const Header = () => {
               <Popover id={`popover-positioned bottom`}>
                 <Popover.Body>
                   <button className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6">
-                    마이페이지
+                    <Link
+                      to="/mypage"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      마이페이지
+                    </Link>
                   </button>
                   <button
                     className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6"

@@ -17,20 +17,10 @@ const Join = () => {
     email: Yup.string()
       .email("올바르지 않은 이메일 형식 입니다.")
       .required("이메일은 필수 입력 항목 입니다."),
-
-    password: Yup.string()
-      .required("비밀번호는 필수 입력 항목 입니다.")
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/,
-        "숫자와 특수문자를 포함한 8~20자의 영문을 입력해주세요"
-      ),
     nickname: Yup.string()
       .required("닉네임은 필수 입력 항목 입니다.")
       .min(2, "너무 짧습니다.")
       .max(15, "너무 깁니다."),
-    password_check: Yup.string()
-      .oneOf([Yup.ref("password")], "비밀번호가 일치 하지 않습니다.")
-      .required("비밀번호 체크는 필수 입력 항목 입니다."),
     birth: Yup.string()
       .required("생년월일은 필수 입력 항목 입니다.")
       .matches(
@@ -130,7 +120,6 @@ const Join = () => {
 
           <Form.Group className="mb-1" controlId="formBasicPassword">
             <Form.Label>성별</Form.Label>
-
             <div key={"inline-radio"}>
               <Form.Check
                 inline
@@ -161,10 +150,8 @@ const Join = () => {
               placeholder="YYYYMMDD"
               {...register("birth")}
             />
-
             {errors.birth && <small role="alert">{errors.birth.message}</small>}
           </Form.Group>
-
           <Form.Group>
             <Form.Label>주소</Form.Label>
             <button onClick={handleComplete} className="adress_serch">
