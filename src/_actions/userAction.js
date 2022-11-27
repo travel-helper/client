@@ -5,7 +5,7 @@ import {
   requestSignUp,
   requestlogout,
 } from "../api/api";
-
+import jwt from "jsonwebtoken";
 export const login = createAsyncThunk(
   "user/login",
   async (data, { rejectWithValue }) => {
@@ -14,7 +14,9 @@ export const login = createAsyncThunk(
       // console.log(token);
       localStorage.setItem("jwtToken", token);
       // console.log("localstorage set jwt");
-      return token;
+
+      const decodeToken = jwt.decode(token);
+      return decodeToken;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -24,7 +26,8 @@ export const login = createAsyncThunk(
 export const loadMyInfo = createAsyncThunk("user/loadMyInfo", async () => {
   //로그인 유지를 위한 유저 정보 요청 함수
   const result = await fetchUser();
-  return result;
+  const decodeToken = jwt.decode(result);
+  return decodeToken;
 });
 
 export const logout = createAsyncThunk("user/logout", async () => {
