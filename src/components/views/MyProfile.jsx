@@ -36,13 +36,13 @@ const MyProfile = () => {
           </div>
           <div className="posting-photo">
             <div>
-              <img src={"img/mini_camera.png"} alt="photo" />
+              <img src={"img/mini_camera.png"} alt="camera" />
             </div>
             <div>
-              <img src={"img/mini_camera.png"} alt="photo" />
+              <img src={"img/mini_camera.png"} alt="camera" />
             </div>
             <div>
-              <img src={"img/mini_camera.png"} alt="photo" />
+              <img src={"img/mini_camera.png"} alt="camera" />
             </div>
           </div>
         </div>

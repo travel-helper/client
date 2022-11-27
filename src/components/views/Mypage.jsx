@@ -6,7 +6,7 @@ import MyProfile from "./MyProfile";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { signup } from "../../_actions/userAction";
-import { margin } from "styled-system";
+// import { margin } from "styled-system";
 
 const Mypage = () => {
   const [profilestate, setProfilestate] = useState(1);
@@ -72,8 +72,8 @@ const Mypage = () => {
         </button>
       </div>
       <div className="mypage-border">
-        {profilestate == 1 && <MyProfile />}
-        {profilestate == 2 && (
+        {profilestate === 1 && <MyProfile />}
+        {profilestate === 2 && (
           <div>
             <div className="mypage-title">
               <h2 className="w-100 fw-bold">회원정보 수정</h2>
