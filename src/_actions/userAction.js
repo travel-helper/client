@@ -30,6 +30,7 @@ export const loadMyInfo = createAsyncThunk("user/loadMyInfo", async () => {
 export const logout = createAsyncThunk("user/logout", async () => {
   console.log("call logout");
   const result = await requestlogout();
+  localStorage.clear(); //토큰 삭제
   return result;
 });
 
