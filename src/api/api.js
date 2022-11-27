@@ -17,6 +17,7 @@ export const setAuthToken = async (token) => {
   }
 };
 export const requestLogin = async (params) => {
+  delete axios.defaults.headers.common["authorization"];
   const response = await axios.post("/user/login", params);
   console.log(response.data);
   return response.data;
