@@ -5,6 +5,7 @@ axios.defaults.baseURL = "https://server-production-73a6.up.railway.app";
 axios.defaults.withCredentials = true; // front, backend 간 쿠키공유
 
 export const setAuthToken = async (token) => {
+  console.log(1);
   if (token) {
     //jwt가 있으면
     // axios.defaults.headers.common["authorization"] = `Bearer${token}`;
@@ -27,6 +28,8 @@ export const fetchUser = async (params) => {
 };
 
 export const requestlogout = async (params) => {
+  console.log(2);
+  axios.defaults.headers.common["authorization"] = localStorage.jwtToken;
   const response = await axios.post("/user/logout");
   console.log("call requestlogout");
   return response.data;
