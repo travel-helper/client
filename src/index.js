@@ -7,10 +7,10 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store/configureStore";
 import { QueryClient, QueryClientProvider } from "react-query";
-
+import { setAuthToken } from "./api/api";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
-
+setAuthToken(localStorage.jwtToken); //헤더설정
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

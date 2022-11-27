@@ -10,9 +10,11 @@ export const login = createAsyncThunk(
   "user/login",
   async (data, { rejectWithValue }) => {
     try {
-      const result = await requestLogin(data);
-
-      return result;
+      const token = await requestLogin(data);
+      // console.log(token);
+      localStorage.setItem("jwtToken", token);
+      // console.log("localstorage set jwt");
+      return token;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
