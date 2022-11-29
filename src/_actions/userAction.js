@@ -25,8 +25,8 @@ export const login = createAsyncThunk(
 export const loadMyInfo = createAsyncThunk("user/loadMyInfo", async () => {
   //로그인 유지를 위한 유저 정보 요청 함수
   const result = await fetchUser();
-  
-  return res
+
+  return result;
 });
 
 export const logout = createAsyncThunk("user/logout", async () => {
