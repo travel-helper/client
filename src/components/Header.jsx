@@ -19,10 +19,12 @@ export const Header = () => {
   //   enabled: !!isLogined,
   // });
 
-  const { me } = useSelector((state) => state.user);
   useEffect(() => {
     dispatch(loadMyInfo());
   }, [dispatch]);
+
+  const { jwt } = useSelector((state) => state.user);
+
   return (
     <div>
       <a href="/">
@@ -38,7 +40,7 @@ export const Header = () => {
           문의
         </Link>
       </button>
-      {me ? (
+      {jwt ? (
         // {isLogined ? (
         <>
           <OverlayTrigger

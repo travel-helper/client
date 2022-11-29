@@ -5,7 +5,7 @@ import {
   requestSignUp,
   requestlogout,
 } from "../api/api";
-import jwt from "jsonwebtoken";
+
 export const login = createAsyncThunk(
   "user/login",
   async (data, { rejectWithValue }) => {
