@@ -40,3 +40,9 @@ export const requestSignUp = async (params) => {
   const response = await axios.post("/user/signup", params);
   return response.data;
 };
+
+export const sendImg = async (params) => {
+  const response = await axios.post("/post/img", params);
+
+  return response.data;
+};
