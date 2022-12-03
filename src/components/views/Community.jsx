@@ -5,7 +5,7 @@ import { Dropdown } from "react-bootstrap";
 
 function Community() {
   return (
-    <div className="container">
+    <div>
       <div className="board_btn">
         <button style={{ background: "#32D2C9" }}>
           <Link
@@ -31,93 +31,94 @@ function Community() {
           </Link>
         </button>
       </div>
+      <div className="container">
+        <div className=" container mt-3">
+          <div>
+            <Dropdown className="filter">
+              <Dropdown.Toggle
+                className="filter-list"
+                id="dropdownMenuLink"
+                aria-expanded="false"
+                style={{ backgroundColor: "#F1F1F1", color: "black" }}
+              >
+                필터
+              </Dropdown.Toggle>
 
-      <div className=" container mt-3">
-        <div>
-          <Dropdown className="filter">
-            <Dropdown.Toggle
-              className="filter-list"
-              id="dropdownMenuLink"
-              aria-expanded="false"
-              style={{ backgroundColor: "#F1F1F1", color: "black" }}
-            >
-              필터
-            </Dropdown.Toggle>
+              <Dropdown.Menu className="filter-down">
+                <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown className="filter">
+              <Dropdown.Toggle
+                className="filter-list"
+                id="dropdownMenuLink"
+                aria-expanded="false"
+                style={{ backgroundColor: "#F1F1F1", color: "black" }}
+              >
+                필터
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu className="filter-down">
-              <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown className="filter">
-            <Dropdown.Toggle
-              className="filter-list"
-              id="dropdownMenuLink"
-              aria-expanded="false"
-              style={{ backgroundColor: "#F1F1F1", color: "black" }}
-            >
-              필터
-            </Dropdown.Toggle>
+              <Dropdown.Menu className="filter-down">
+                <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown className="filter">
+              <Dropdown.Toggle
+                className="filter-list"
+                id="dropdownMenuLink"
+                aria-expanded="false"
+                style={{ backgroundColor: "#F1F1F1", color: "black" }}
+              >
+                필터
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu className="filter-down">
-              <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown className="filter">
-            <Dropdown.Toggle
-              className="filter-list"
-              id="dropdownMenuLink"
-              aria-expanded="false"
-              style={{ backgroundColor: "#F1F1F1", color: "black" }}
-            >
-              필터
-            </Dropdown.Toggle>
+              <Dropdown.Menu className="filter-down">
+                <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown className="filter">
+              <Dropdown.Toggle
+                className="filter-list"
+                id="dropdownMenuLink"
+                aria-expanded="false"
+                style={{ backgroundColor: "#F1F1F1", color: "black" }}
+              >
+                필터
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu className="filter-down">
-              <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown className="filter">
-            <Dropdown.Toggle
-              className="filter-list"
-              id="dropdownMenuLink"
-              aria-expanded="false"
-              style={{ backgroundColor: "#F1F1F1", color: "black" }}
-            >
-              필터
-            </Dropdown.Toggle>
+              <Dropdown.Menu className="filter-down">
+                <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown className="filter">
+              <Dropdown.Toggle
+                className="filter-list"
+                id="dropdownMenuLink"
+                aria-expanded="false"
+                style={{ backgroundColor: "#F1F1F1", color: "black" }}
+              >
+                필터
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu className="filter-down">
-              <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown className="filter">
-            <Dropdown.Toggle
-              className="filter-list"
-              id="dropdownMenuLink"
-              aria-expanded="false"
-              style={{ backgroundColor: "#F1F1F1", color: "black" }}
-            >
-              필터
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu className="filter-down">
-              <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+              <Dropdown.Menu className="filter-down">
+                <Dropdown.Item href="#/action-1">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">#맛집</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">#맛집</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
         </div>
-      </div>
-      <div className="mt-3">
-        <SNSPostMain1 />
+        <div className="mt-3">
+          <SNSPostMain1 />
+        </div>
       </div>
     </div>
   );

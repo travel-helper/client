@@ -6,10 +6,10 @@ import MyProfile from "./MyProfile";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { signup } from "../../_actions/userAction";
-import { margin } from "styled-system";
 
 const Mypage = () => {
   const [profilestate, setProfilestate] = useState(1);
+
   const [imageSrc, setImageSrc] = useState("img/mini_camera.png");
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -55,7 +55,7 @@ const Mypage = () => {
     <Container>
       <div className="w-100 justify-content-center d-flex">
         <button
-          className="border-0 bg-transparent fw-bold"
+          className="border-0 bg-transparent fw-bold fs-3"
           onClick={() => {
             setProfilestate(1);
           }}
@@ -63,7 +63,7 @@ const Mypage = () => {
           프로필
         </button>
         <button
-          className="border-0 bg-transparent fw-bold"
+          className="border-0 bg-transparent fw-bold fs-3"
           onClick={() => {
             setProfilestate(2);
           }}

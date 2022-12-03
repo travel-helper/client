@@ -11,6 +11,7 @@ import Write from "./components/views/Write";
 import QA from "./components/views/QA";
 import Community from "./components/views/Community";
 import Mypage from "./components/views/Mypage";
+import Travel from "./components/views/Travel";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/qa" element={<QA />} />
         <Route path="/community" element={<Community />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/travel" element={<Travel />} />
+        <Route path="/event" element={<Event />} />
       </Routes>
     </div>
   );
