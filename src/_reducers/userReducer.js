@@ -5,6 +5,7 @@ import { login, signup, logout, loadMyInfo } from "../_actions/userAction";
 // 기본 state
 export const initialState = {
   me: null, // 내 정보
+  jwt: null, //jwt 토큰
   isLogined: false,
   //   userInfo: null, // 유저 정보
   loadMyInfoLoading: false, // 로그인 정보 조회
@@ -52,7 +53,7 @@ const userSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.loginLoading = false;
         state.isLogined = true;
-        state.me = action.payload;
+        state.jwt = action.payload;
         state.loginDone = true;
       })
       .addCase(login.rejected, (state, action) => {
@@ -69,6 +70,7 @@ const userSlice = createSlice({
         state.logoutLoading = false;
         state.isLogined = false;
         state.logoutDone = true;
+        state.jwt = null;
         state.me = null;
       })
       .addCase(logout.rejected, (state, action) => {
@@ -98,6 +100,7 @@ const userSlice = createSlice({
       .addCase(loadMyInfo.fulfilled, (state, action) => {
         state.loadMyInfoLoading = false;
         state.loadMyInfoDone = true;
+        state.jwt = localStorage.jwtToken ?? null;
         state.me = action.payload;
       })
       .addCase(loadMyInfo.rejected, (state, action) => {
