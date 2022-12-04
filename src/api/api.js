@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://server-production-73a6.up.railway.app";
-axios.defaults.baseURL = "http://localhost:443";
+axios.defaults.baseURL = "https://server-production-73a6.up.railway.app";
+// axios.defaults.baseURL = "http://localhost:443";
 axios.defaults.withCredentials = true; // front, backend 간 쿠키공유
 
 export const setAuthToken = async (token) => {
