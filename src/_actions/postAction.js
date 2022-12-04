@@ -1,5 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { sendImg } from "../api/api";
+import { sendImg, sendPost } from "../api/api";
+
+export const addPost = createAsyncThunk(
+  "post/addPost",
+  async (data, thunkAPI) => {
+    try {
+      const response = await sendPost(data);
+      //   thunkAPI.dispatch(userSlice.actions.addPostToMe(response.data.id));
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
 
 export const uploadImage = createAsyncThunk(
   "post/img",

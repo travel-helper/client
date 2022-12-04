@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import {
   //   addComment,
-  //   addPost,
+    addPost,
   //   likePost,
   //   loadHashtagPosts,
   //   loadPost,
@@ -108,22 +108,22 @@ const postSlice = createSlice({
       //     state.loadPostsLoading = false;
       //     state.loadPostsError = action.error.message;
       //   })
-      //   // addPost
-      //   .addCase(addPost.pending, (state) => {
-      //     state.addPostLoading = true;
-      //     state.addPostDone = false;
-      //     state.addPostError = null;
-      //   })
-      //   .addCase(addPost.fulfilled, (state, action) => {
-      //     state.addPostLoading = false;
-      //     state.addPostDone = true;
-      //     state.mainPosts.unshift(action.payload);
-      //     state.imagePaths = [];
-      //   })
-      //   .addCase(addPost.rejected, (state, action) => {
-      //     state.addPostLoading = false;
-      //     state.addPostError = action.error.message;
-      //   })
+        // addPost
+        .addCase(addPost.pending, (state) => {
+          state.addPostLoading = true;
+          state.addPostDone = false;
+          state.addPostError = null;
+        })
+        .addCase(addPost.fulfilled, (state, action) => {
+          state.addPostLoading = false;
+          state.addPostDone = true;
+        //   state.mainPosts.unshift(action.payload);
+          state.imagePath = [];
+        })
+        .addCase(addPost.rejected, (state, action) => {
+          state.addPostLoading = false;
+          state.addPostError = action.error.message;
+        })
       //   // uploadImages
       .addCase(uploadImage.pending, (state) => {
         state.uploadImageLoading = true;
