@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import styled, { css } from "styled-components";
 
-const SNSPostMain2 = () => {
+const SNSPostMain2 = ({ content }) => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
@@ -67,9 +67,7 @@ const SNSPostMain2 = () => {
           </div>
           <p className="card-text">
             <font style={{ verticalAlign: "inherit" }}>
-              <font style={{ verticalAlign: "inherit" }}>
-                SNS 포스팅 글 부분이 여기 표시 됩니다
-              </font>
+              <font style={{ verticalAlign: "inherit" }}>{content}</font>
             </font>
           </p>
         </div>

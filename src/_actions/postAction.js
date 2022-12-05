@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { sendImg, sendPost } from "../api/api";
+import { sendImg, sendPost, requestPosts } from "../api/api";
 
 export const addPost = createAsyncThunk(
   "post/addPost",
@@ -13,6 +13,12 @@ export const addPost = createAsyncThunk(
     }
   }
 );
+
+export const loadPosts = createAsyncThunk("post/loadPosts", async (data) => {
+  const response = await requestPosts(data);
+
+  return response;
+});
 
 export const uploadImage = createAsyncThunk(
   "post/img",
