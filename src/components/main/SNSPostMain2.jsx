@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 // import styled, { css } from "styled-components";
 
-const SNSPostMain2 = ({ content }) => {
+const SNSPostMain2 = ({ content, nickname, thumbnail }) => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
-
+ 
   return (
     <div className="col">
       <div style={{ display: "flex" }}>
@@ -16,7 +16,7 @@ const SNSPostMain2 = ({ content }) => {
           className="rounded-circle"
         />
         <div>
-          <p className="fs-5 mt-4 ms-4">lects_go</p>
+          <p className="fs-5 mt-4 ms-4">{nickname}</p>
         </div>
         <div
           style={{ float: "right", width: "50%" }}
@@ -38,19 +38,19 @@ const SNSPostMain2 = ({ content }) => {
         </div>
       </div>
       <div className="card shadow-sm">
-        <svg
+        <img
           className="bd-placeholder-img card-img-top"
           width="100%"
           height="225"
-          xmlns="http://www.w3.org/2000/svg"
+          src={`http://localhost:443${thumbnail?.substring(7)}`}
           role="img"
           aria-label="자리 표시자: 썸네일"
           preserveAspectRatio="xMidYMid slice"
           focusable="false"
-        >
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#D9D9D9"></rect>
-        </svg>
+        />
+       
+          
+      
         <div className="card-body">
           <div className="d-flex justify-content-between align-items-center">
             <div className="btn-group">

@@ -18,8 +18,11 @@ const SNSPostMain1 = () => {
     <Container>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
         {mainPosts.map((post) => (
-            
-          <SNSPostMain2 content={post.content} />
+          <SNSPostMain2
+            content={post.content}
+            nickname={post.User?.nickname}
+            thumbnail={post.thumbnail}
+          />
         ))}
       </div>
     </Container>
