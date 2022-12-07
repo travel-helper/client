@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import _concat from 'lodash/concat';
-import _remove from 'lodash/remove';
-import _find from 'lodash/find';
+// import _concat from "lodash/concat";
+import _remove from "lodash/remove";
+import _find from "lodash/find";
 
 import {
   //   addComment,
@@ -72,7 +72,7 @@ const postSlice = createSlice({
       .addCase(loadPosts.fulfilled, (state, action) => {
         state.loadPostsLoading = false;
         state.loadPostsDone = true;
-        state.mainPosts = _concat(state.mainPosts, action.payload);
+        state.mainPosts = action.payload;
         //   state.hasMorePosts = action.payload.length === 10;
       })
       .addCase(loadPosts.rejected, (state, action) => {
@@ -120,7 +120,7 @@ const postSlice = createSlice({
       .addCase(addPost.fulfilled, (state, action) => {
         state.addPostLoading = false;
         state.addPostDone = true;
-        //   state.mainPosts.unshift(action.payload);
+        // state.mainPosts.unshift(action.payload);
         state.imagePath = [];
       })
       .addCase(addPost.rejected, (state, action) => {
