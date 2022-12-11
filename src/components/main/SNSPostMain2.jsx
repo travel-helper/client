@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 // import styled, { css } from "styled-components";
+import Modal from "../Modal";
+import PostDetail from "../views/PostDetail";
 
 const SNSPostMain2 = () => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <div className="col">
@@ -49,7 +59,12 @@ const SNSPostMain2 = () => {
           focusable="false"
         >
           <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#D9D9D9"></rect>
+          <rect
+            onClick={openModal}
+            width="100%"
+            height="100%"
+            fill="#D9D9D9"
+          ></rect>
         </svg>
         <div className="card-body">
           <div className="d-flex justify-content-between align-items-center">
@@ -74,6 +89,11 @@ const SNSPostMain2 = () => {
           </p>
         </div>
       </div>
+      <Modal open={modalOpen} close={closeModal} header="Modal heading">
+        <div>
+          <PostDetail />
+        </div>
+      </Modal>
     </div>
   );
 };

@@ -32,19 +32,27 @@ const Write = () => {
   };
 
   const encodeFileToBase64 = (fileBlob) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(fileBlob);
+    const idxDot = fileBlob.name.lastIndexOf(".") + 1;
+    var extFile = fileBlob.name
+      .substr(idxDot, fileBlob.name.length)
+      .toLowerCase();
+    if (extFile == "jpg" || extFile == "jpeg" || extFile == "png") {
+      const reader = new FileReader();
+      reader.readAsDataURL(fileBlob);
 
-    return new Promise((resolve) => {
-      reader.onload = () => {
-        setImageSrc(reader.result);
-        let imageFormData = new FormData();
-        imageFormData.append("img", fileBlob);
-        dispatch(uploadImage(imageFormData));
+      return new Promise((resolve) => {
+        reader.onload = () => {
+          setImageSrc(reader.result);
+          let imageFormData = new FormData();
+          imageFormData.append("img", fileBlob);
+          dispatch(uploadImage(imageFormData));
 
-        resolve();
-      };
-    });
+          resolve();
+        };
+      });
+    } else {
+      alert("jpg, jpeg, png 형식만 가능합니다");
+    }
   };
 
   const selectFile = useRef("");
@@ -57,6 +65,7 @@ const Write = () => {
         className="container"
       >
         <input
+          accept="image/png, image/jpeg, image/jpg"
           type="file"
           style={{ display: "none" }}
           ref={selectFile}

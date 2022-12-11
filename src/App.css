@@ -537,6 +537,9 @@ hr {
   align-items: center;
   margin-top: 25%;
 }
+.preview > img {
+  max-width: 500px;
+}
 
 .mypage-image {
   display: grid;
@@ -721,6 +724,7 @@ hr {
 .modal {
   display: none;
   position: fixed;
+
   top: 0;
   right: 0;
   bottom: 0;
@@ -735,7 +739,7 @@ hr {
 }
 .modal > section {
   width: 90%;
-  max-width: 450px;
+  max-width: 1000px;
   margin: 0 auto;
   border-radius: 0.3rem;
   background-color: #fff;
@@ -762,6 +766,8 @@ hr {
 }
 .modal > section > main {
   padding: 16px;
+
+  max-height: 1000px;
   border-bottom: 1px solid #dee2e6;
   border-top: 1px solid #dee2e6;
 }
@@ -831,4 +837,43 @@ hr {
   opacity: 10;
   font-size: 15px;
   color: #32d2c9;
+}
+.mypage_link {
+  border: none;
+  background-color: none;
+  font-weight: bold;
+  color: black;
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.mypage_link:hover {
+  border: none;
+  background-color: none;
+  font-weight: bold;
+  color: black;
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: none;
+}
+.grid_container {
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+  width: 500px;
+}
+
+.grid_container > div {
+  background-color: #d6d5d5;
+  width: 230px;
+  height: 230px;
+}
+.grid_container img {
+  display: block;
+  margin: 35% auto;
+  width: 50px;
+}
+.post_btn > img {
+  width: 50px;
 }

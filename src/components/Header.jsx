@@ -40,8 +40,9 @@ export const Header = () => {
           문의
         </Link>
       </button>
-      {jwt ? (
-        // {isLogined ? (
+      {/* {jwt ? ( */}
+      {/* {isLogined ? ( */}
+      {true ? (
         <>
           <OverlayTrigger
             trigger="click"
@@ -51,7 +52,7 @@ export const Header = () => {
                 <Popover.Body>
                   <button className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6">
                     <Link
-                      to="/mypage"
+                      to="/mypage/profile"
                       style={{ textDecoration: "none", color: "black" }}
                     >
                       마이페이지

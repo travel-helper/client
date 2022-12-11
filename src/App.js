@@ -8,10 +8,10 @@ import Login from "./components/views/Login";
 import Join from "./components/views/Join";
 import Event from "./components/views/Event";
 import Write from "./components/views/Write";
-import QA from "./components/views/QA";
 import Community from "./components/views/Community";
 import Mypage from "./components/views/Mypage";
 import Travel from "./components/views/Travel";
+import PostDetail from "./components/views/PostDetail";
 
 function App() {
   return (
@@ -23,11 +23,11 @@ function App() {
         <Route path="/join" element={<Join />} />
         <Route path="/write" element={<Write />} />
         <Route path="/event" element={<Event />} />
-        <Route path="/qa" element={<QA />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/mypage/:set" element={<Mypage />} />
         <Route path="/travel" element={<Travel />} />
         <Route path="/event" element={<Event />} />
+        <Route path="/postabc" element={<PostDetail />} />
       </Routes>
     </div>
   );

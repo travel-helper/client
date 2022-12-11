@@ -31,7 +31,7 @@ const MyprofilePosting2 = () => {
                 <img src={isListHover ? pinkHeart : heart} alt="like" />
               </button>
               <button>
-                <img src={"img/comment.png"} alt="like" />
+                <img src={"/img/comment.png"} alt="like" />
               </button>
             </div>
           </div>

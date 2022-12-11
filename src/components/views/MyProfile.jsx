@@ -26,7 +26,7 @@ const MyProfile = () => {
       <div className="d-flex">
         <div className="posting-profile">
           <img
-            src={"img/people.png"}
+            src={"/img/people.png"}
             alt="profile"
             className="posting-profile-img"
           />
@@ -77,10 +77,10 @@ const MyProfile = () => {
           <hr className="w-100" />
           <div>
             <button className="border-0 bg-transparent float-end">
-              <img src={"img/bookmark.png"} alt="bookmark" />
+              <img src={"/img/bookmark.png"} alt="bookmark" />
             </button>
             <button className="border-0 bg-transparent">
-              <img src={"img/posting_heart.png"} alt="like" />
+              <img src={"/img/posting_heart.png"} alt="like" />
             </button>
           </div>
           <div className="d-flex justify-content-center align-items-center">
