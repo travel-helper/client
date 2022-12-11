@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import _concat from "lodash/concat";
+import _remove from "lodash/remove";
+import _find from "lodash/find";
 
 import {
   //   addComment,
-  //   addPost,
+  addPost,
   //   likePost,
   //   loadHashtagPosts,
   //   loadPost,
-  //   loadPosts,
+  loadPosts,
   //   loadUserPosts,
   //   removePost,
   //   retweet,
@@ -17,16 +20,16 @@ import {
 
 // 기본 state
 export const initialState = {
-  //   mainPosts: [],
+  mainPosts: [],
   //   hasMorePosts: true,
   //   singlePost: null,
   imagePath: null,
-  //   loadPostsLoading: false,
-  //   loadPostsDone: false,
-  //   loadPostsError: null,
-  //   addPostLoading: false,
-  //   addPostDone: false,
-  //   addPostError: null,
+  loadPostsLoading: false,
+  loadPostsDone: false,
+  loadPostsError: null,
+  addPostLoading: false,
+  addPostDone: false,
+  addPostError: null,
   //   updatePostLoading: false,
   //   updatePostDone: false,
   //   updatePostError: null,
@@ -60,22 +63,22 @@ const postSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      //   // loadPosts
-      //   .addCase(loadPosts.pending, (state) => {
-      //     state.loadPostsLoading = true;
-      //     state.loadPostsDone = false;
-      //     state.loadPostsError = null;
-      //   })
-      //   .addCase(loadPosts.fulfilled, (state, action) => {
-      //     state.loadPostsLoading = false;
-      //     state.loadPostsDone = true;
-      //     state.mainPosts = _concat(state.mainPosts, action.payload);
-      //     state.hasMorePosts = action.payload.length === 10;
-      //   })
-      //   .addCase(loadPosts.rejected, (state, action) => {
-      //     state.loadPostsLoading = false;
-      //     state.loadPostsError = action.error.message;
-      //   })
+      // loadPosts
+      .addCase(loadPosts.pending, (state) => {
+        state.loadPostsLoading = true;
+        state.loadPostsDone = false;
+        state.loadPostsError = null;
+      })
+      .addCase(loadPosts.fulfilled, (state, action) => {
+        state.loadPostsLoading = false;
+        state.loadPostsDone = true;
+        state.mainPosts = action.payload;
+        //   state.hasMorePosts = action.payload.length === 10;
+      })
+      .addCase(loadPosts.rejected, (state, action) => {
+        state.loadPostsLoading = false;
+        state.loadPostsError = action.error.message;
+      })
       //   // loadHashtagPosts
       //   .addCase(loadHashtagPosts.pending, (state) => {
       //     state.loadPostsLoading = true;
@@ -108,22 +111,22 @@ const postSlice = createSlice({
       //     state.loadPostsLoading = false;
       //     state.loadPostsError = action.error.message;
       //   })
-      //   // addPost
-      //   .addCase(addPost.pending, (state) => {
-      //     state.addPostLoading = true;
-      //     state.addPostDone = false;
-      //     state.addPostError = null;
-      //   })
-      //   .addCase(addPost.fulfilled, (state, action) => {
-      //     state.addPostLoading = false;
-      //     state.addPostDone = true;
-      //     state.mainPosts.unshift(action.payload);
-      //     state.imagePaths = [];
-      //   })
-      //   .addCase(addPost.rejected, (state, action) => {
-      //     state.addPostLoading = false;
-      //     state.addPostError = action.error.message;
-      //   })
+      // addPost
+      .addCase(addPost.pending, (state) => {
+        state.addPostLoading = true;
+        state.addPostDone = false;
+        state.addPostError = null;
+      })
+      .addCase(addPost.fulfilled, (state, action) => {
+        state.addPostLoading = false;
+        state.addPostDone = true;
+        // state.mainPosts.unshift(action.payload);
+        state.imagePath = [];
+      })
+      .addCase(addPost.rejected, (state, action) => {
+        state.addPostLoading = false;
+        state.addPostError = action.error.message;
+      })
       //   // uploadImages
       .addCase(uploadImage.pending, (state) => {
         state.uploadImageLoading = true;

@@ -3,7 +3,8 @@ import { Container, Dropdown, Form } from "react-bootstrap";
 import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { uploadImage } from "../../_actions/postAction";
+import { uploadImage, addPost } from "../../_actions/postAction";
+import { useNavigate } from "react-router-dom";
 const Write = () => {
   const {
     register, //유효성 검사
@@ -14,7 +15,7 @@ const Write = () => {
   } = useForm({
     mode: "onChange",
   });
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { imagePath } = useSelector((state) => state.post);
   const [imageSrc, setImageSrc] = useState("img/camera.png");
@@ -29,6 +30,9 @@ const Write = () => {
     // data["priceRange"] = tag3; //db변경해야서 일단 주석처리
     data["thumbnail"] = imagePath;
     console.log(tag3);
+
+    dispatch(addPost(data));
+    navigate("/");
   };
 
   const encodeFileToBase64 = (fileBlob) => {

@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import Modal from "../Modal";
 import PostDetail from "../views/PostDetail";
 
-const SNSPostMain2 = () => {
+const SNSPostMain2 = ({ content, nickname, thumbnail }) => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
+
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -26,7 +27,7 @@ const SNSPostMain2 = () => {
           className="rounded-circle"
         />
         <div>
-          <p className="fs-5 mt-4 ms-4">lects_go</p>
+          <p className="fs-5 mt-4 ms-4">{nickname}</p>
         </div>
         <div
           style={{ float: "right", width: "50%" }}
@@ -48,24 +49,25 @@ const SNSPostMain2 = () => {
         </div>
       </div>
       <div className="card shadow-sm">
-        <svg
+        <img
           className="bd-placeholder-img card-img-top"
           width="100%"
           height="225"
-          xmlns="http://www.w3.org/2000/svg"
+          src={`http://localhost:443${thumbnail?.substring(7)}`}
           role="img"
           aria-label="자리 표시자: 썸네일"
           preserveAspectRatio="xMidYMid slice"
           focusable="false"
-        >
-          <title>Placeholder</title>
-          <rect
-            onClick={openModal}
-            width="100%"
-            height="100%"
-            fill="#D9D9D9"
-          ></rect>
-        </svg>
+          alt=""
+        />
+        <title>Placeholder</title>
+        <rect
+          onClick={openModal}
+          width="100%"
+          height="100%"
+          fill="#D9D9D9"
+        ></rect>
+
         <div className="card-body">
           <div className="d-flex justify-content-between align-items-center">
             <div className="btn-group">
@@ -82,9 +84,7 @@ const SNSPostMain2 = () => {
           </div>
           <p className="card-text">
             <font style={{ verticalAlign: "inherit" }}>
-              <font style={{ verticalAlign: "inherit" }}>
-                SNS 포스팅 글 부분이 여기 표시 됩니다
-              </font>
+              <font style={{ verticalAlign: "inherit" }}>{content}</font>
             </font>
           </p>
         </div>
