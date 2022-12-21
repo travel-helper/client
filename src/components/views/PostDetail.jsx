@@ -51,7 +51,9 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
 
         <button className="follow-btn">팔로잉</button>
         <button className="following-btn">팔로우</button>
-        <button className="modify-btn">수정하기</button>
+        <button className="modify-btn" onClick={onClickUpdateToggleButton}>
+          수정하기
+        </button>
       </div>
       <div className="grid_container">
         <div style={{ width: "35%" }}>
@@ -82,7 +84,7 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
             >
               <img src={isListHover ? pinkHeart : heart} alt="like" />
             </button>
-            <button className="post_btn" onClick={onClickUpdateToggleButton}>
+            <button className="post_btn">
               <img src={"img/comment.png"} alt="like" />
             </button>
           </div>
@@ -142,12 +144,13 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
                 required: "글을 입력해주세요",
               })}
               as="textarea"
-              rows={12}
+              rows={8}
               style={{ backgroundColor: "#E7E7E7" }}
             />
           </Form.Group>
-          <button className="succes-write" type="submit">
-            <label>수정완료</label>
+
+          <button className="close" type="submit">
+            수정완료
           </button>
         </Form>
       ) : (
