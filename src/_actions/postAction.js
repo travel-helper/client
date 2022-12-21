@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { sendImg, sendPost, requestPosts } from "../api/api";
+import { sendImg, sendPost, requestPosts, removeRequest } from "../api/api";
 
 export const addPost = createAsyncThunk(
   "post/addPost",
@@ -29,6 +29,20 @@ export const uploadImage = createAsyncThunk(
       return response.url;
     } catch (error) {
       return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const removePost = createAsyncThunk(
+  "post/removePost",
+  async (data, thunkAPI) => {
+    try {
+    
+      const response = await removeRequest(data); // DELETE /post/1/comment
+      // thunkAPI.dispatch(userSlice.actions.removePostToMe(response.data.id));
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );

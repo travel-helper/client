@@ -5,7 +5,6 @@ axios.defaults.baseURL = "http://localhost:443";
 axios.defaults.withCredentials = true; // front, backend 간 쿠키공유
 
 export const setAuthToken = async (token) => {
-  console.log(1);
   if (token) {
     //jwt가 있으면
     // axios.defaults.headers.common["authorization"] = `Bearer${token}`;
@@ -29,7 +28,6 @@ export const fetchUser = async (params) => {
 };
 
 export const requestlogout = async (params) => {
-  console.log(2);
   axios.defaults.headers.common["authorization"] = localStorage.jwtToken;
   const response = await axios.post("/user/logout");
   console.log("call requestlogout");
@@ -53,6 +51,12 @@ export const sendPost = async (params) => {
 };
 export const requestPosts = async (params) => {
   const response = await axios.get(`/post?lastId=${params?.lastId || 0}`);
-  
+
+  return response.data;
+};
+
+export const removeRequest = async (params) => {
+  const response = await axios.delete(`/post/${params}`);
+
   return response.data;
 };

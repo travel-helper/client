@@ -11,7 +11,7 @@ import {
   //   loadPost,
   loadPosts,
   //   loadUserPosts,
-  //   removePost,
+  removePost,
   //   retweet,
   //   unlikePost,
   //   updatePost,
@@ -23,7 +23,7 @@ export const initialState = {
   mainPosts: [],
   //   hasMorePosts: true,
   //   singlePost: null,
-  imagePath: null,
+  imagePath: "/upload/default1671612853173.png",
   loadPostsLoading: false,
   loadPostsDone: false,
   loadPostsError: null,
@@ -33,9 +33,9 @@ export const initialState = {
   //   updatePostLoading: false,
   //   updatePostDone: false,
   //   updatePostError: null,
-  //   removePostLoading: false,
-  //   removePostDone: false,
-  //   removePostError: null,
+  removePostLoading: false,
+  removePostDone: false,
+  removePostError: null,
   //   addCommentLoading: false,
   //   addCommentDone: false,
   //   addCommentError: null,
@@ -121,7 +121,7 @@ const postSlice = createSlice({
         state.addPostLoading = false;
         state.addPostDone = true;
         // state.mainPosts.unshift(action.payload);
-        state.imagePath = [];
+        state.imagePath = "/upload/default1671612853173.png";
       })
       .addCase(addPost.rejected, (state, action) => {
         state.addPostLoading = false;
@@ -158,21 +158,21 @@ const postSlice = createSlice({
       //     state.addCommentLoading = false;
       //     state.addCommentError = action.error.message;
       //   })
-      //   // removePost
-      //   .addCase(removePost.pending, (state) => {
-      //     state.removePostLoading = true;
-      //     state.removePostDone = false;
-      //     state.removePostError = null;
-      //   })
-      //   .addCase(removePost.fulfilled, (state, action) => {
-      //     state.removePostLoading = false;
-      //     state.removePostDone = true;
-      //     _remove(state.mainPosts, { id: action.payload.PostId });
-      //   })
-      //   .addCase(removePost.rejected, (state, action) => {
-      //     state.removePostLoading = false;
-      //     state.removePostError = action.error.message;
-      //   })
+      // removePost
+      .addCase(removePost.pending, (state) => {
+        state.removePostLoading = true;
+        state.removePostDone = false;
+        state.removePostError = null;
+      })
+      .addCase(removePost.fulfilled, (state, action) => {
+        state.removePostLoading = false;
+        state.removePostDone = true;
+        // _remove(state.mainPosts, { id: action.payload.PostId });
+      })
+      .addCase(removePost.rejected, (state, action) => {
+        state.removePostLoading = false;
+        state.removePostError = action.error.message;
+      })
       //   // likePost
       //   .addCase(likePost.pending, (state) => {
       //     state.likePostLoading = true;

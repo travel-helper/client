@@ -35,9 +35,12 @@ export const Header = () => {
           커뮤니티
         </Link>
       </button>
+      <button className="main_menu_btn_design">
+        <Link to="/qa" id="link">
+          문의
+        </Link>
+      </button>
       {jwt ? (
-        /* {isLogined ? ( */
-        // {true ? (
         <>
           <OverlayTrigger
             trigger="click"

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 // import styled, { css } from "styled-components";
 import Modal from "../Modal";
 import PostDetail from "../views/PostDetail";
+import { removePost } from "../../_actions/postAction";
+import { useDispatch } from "react-redux";
 
-const SNSPostMain2 = ({ content, nickname, thumbnail }) => {
+const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
@@ -17,6 +19,7 @@ const SNSPostMain2 = ({ content, nickname, thumbnail }) => {
     setModalOpen(false);
   };
 
+  const dispatch = useDispatch();
   return (
     <div className="col">
       <div style={{ display: "flex" }}>
@@ -37,14 +40,18 @@ const SNSPostMain2 = ({ content, nickname, thumbnail }) => {
             className="btn bg-white"
             style={{
               color: "#32D2C9",
-              border: "none",
+              border: "solid",
               justifyContent: "end",
               fontWeight: "700",
               fontSize: "18px",
               lineHeight: "19px",
             }}
+            onClick={() => {
+              dispatch(removePost(postId));
+            }}
           >
-            팔로우
+            삭제
+        
           </button>
         </div>
       </div>
