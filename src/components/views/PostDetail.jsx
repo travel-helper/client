@@ -51,6 +51,7 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
 
         <button className="follow-btn">팔로잉</button>
         <button className="following-btn">팔로우</button>
+        <button className="modify-btn">수정하기</button>
       </div>
       <div className="grid_container">
         <div style={{ width: "35%" }}>
@@ -59,6 +60,7 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
               style={{ objectFit: "cover" }}
               className="bd-placeholder-img card-img-top"
               width="100%"
+              height="100%"
               src={`http://localhost:443${thumbnail?.substring(7)}`}
               role="img"
               aria-label="자리 표시자: 썸네일"
@@ -86,12 +88,12 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
           </div>
         </div>
       </div>
+      <div>좋아요 7891개</div>
       <div>
         <Link
           to={""}
           style={{
-            backgroundColor: "gray",
-            color: "white",
+            color: "skyblue",
             marginRight: "5px",
           }}
         >
@@ -100,8 +102,7 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
         <Link
           to={""}
           style={{
-            backgroundColor: "gray",
-            color: "white",
+            color: "skyblue",
             marginRight: "5px",
           }}
         >
@@ -110,8 +111,7 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
         <Link
           to={""}
           style={{
-            backgroundColor: "gray",
-            color: "white",
+            color: "skyblue",
             marginRight: "5px",
           }}
         >
@@ -120,7 +120,6 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
         <Link
           to={""}
           style={{
-            backgroundColor: "gray",
             color: "white",
             marginRight: "5px",
           }}

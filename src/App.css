@@ -740,6 +740,7 @@ hr {
 .modal > section {
   width: 90%;
   max-width: 1000px;
+  height: 85%;
   margin: 0 auto;
   border-radius: 0.3rem;
   background-color: #fff;
@@ -837,6 +838,15 @@ hr {
   opacity: 10;
   font-size: 15px;
   color: #32d2c9;
+}
+.modify-btn {
+  margin-right: 0px;
+  margin-left: auto;
+  border: none;
+  background: none;
+  opacity: 10;
+  font-size: 15px;
+  color: black;
 }
 .mypage_link {
   border: none;
