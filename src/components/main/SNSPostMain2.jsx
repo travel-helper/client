@@ -51,7 +51,6 @@ const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
             }}
           >
             삭제
-        
           </button>
         </div>
       </div>
@@ -97,7 +96,10 @@ const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
               </button>
             </div>
           </div>
-          <p className="card-text">
+          <p
+            className="card-text"
+            style={{ height: "200px", overflow: "scroll" }}
+          >
             <font style={{ verticalAlign: "inherit" }}>
               <font style={{ verticalAlign: "inherit" }}>{content}</font>
             </font>
