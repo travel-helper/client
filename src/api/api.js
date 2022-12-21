@@ -60,3 +60,8 @@ export const removeRequest = async (params) => {
 
   return response.data;
 };
+export const updateRequest = async (params) => {
+  const response = await axios.patch(`/post/${params.id}`, params);
+
+  return response.data;
+};

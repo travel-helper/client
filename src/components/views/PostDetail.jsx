@@ -1,20 +1,48 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-const PostDetail = ({ content, nickname, thumbnail }) => {
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { updatePost } from "../../_actions/postAction";
+const PostDetail = ({ postId, content, nickname, thumbnail }) => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
-
+  const [updateMode, setUpdateMode] = useState(false);
   const [moreShow, setMoreShow] = useState(false);
   const [text, setText] = useState("");
+  const dispatch = useDispatch();
+  const {
+    register, //유효성 검사
+    handleSubmit, //submit함수를 인자로 받는 함수
+    // formState: { isSubmitting, errors }, //form의 상태
+    //isSubmitting -> 제출중
+    //errors -> 유효성 훼손
+  } = useForm({
+    mode: "onChange",
+    defaultValues: { inText: content },
+  });
+
   useEffect(() => {
     setText(content);
   }, []);
 
+  const onClickUpdateToggleButton = () => {
+    if (!updateMode) {
+      //업데이트 모드라면 현재 text를 해당 게시글의 텍스트로 바꿔준다
+      //setState는 렌더링 된 후 반영되기 때문에 false일때 실행하도록한다.
+      setText(content);
+    }
+    setUpdateMode(!updateMode);
+  };
+  const onSubmit = (data) => {
+    data["id"] = postId;
+    setText(data.inText);
+    dispatch(updatePost(data));
+    setUpdateMode(false);
+  };
   return (
     <Container>
       <div className="d-flex">
@@ -52,7 +80,7 @@ const PostDetail = ({ content, nickname, thumbnail }) => {
             >
               <img src={isListHover ? pinkHeart : heart} alt="like" />
             </button>
-            <button className="post_btn">
+            <button className="post_btn" onClick={onClickUpdateToggleButton}>
               <img src={"img/comment.png"} alt="like" />
             </button>
           </div>
@@ -101,33 +129,57 @@ const PostDetail = ({ content, nickname, thumbnail }) => {
         </Link>
       </div>
 
-      <div>
-        {text.length < 180 && !moreShow && <div>{text}</div>}
-        {text.length > 180 && !moreShow && (
-          <div>
-            {text.slice(0, 180)}
-            <button
-              onClick={() => {
-                setMoreShow(true);
-              }}
-            >
-              ...더보기
-            </button>
-          </div>
-        )}
-        {moreShow && (
-          <div>
-            {text}
-            <button
-              onClick={() => {
-                setMoreShow(false);
-              }}
-            >
-              접기
-            </button>
-          </div>
-        )}
-      </div>
+      {updateMode ? (
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form.Group
+            className="mb-3 mt-3"
+            controlId="exampleForm.ControlTextarea1"
+          >
+            <Form.Control
+              id="inText"
+              type="text"
+              placeholder="글을 입력해주세요"
+              {...register("inText", {
+                required: "글을 입력해주세요",
+              })}
+              as="textarea"
+              rows={12}
+              style={{ backgroundColor: "#E7E7E7" }}
+            />
+          </Form.Group>
+          <button className="succes-write" type="submit">
+            <label>수정완료</label>
+          </button>
+        </Form>
+      ) : (
+        <div>
+          {text.length < 180 && !moreShow && <div>{text}</div>}
+          {text.length > 180 && !moreShow && (
+            <div>
+              {text.slice(0, 180)}
+              <button
+                onClick={() => {
+                  setMoreShow(true);
+                }}
+              >
+                ...더보기
+              </button>
+            </div>
+          )}
+          {moreShow && (
+            <div>
+              {text}
+              <button
+                onClick={() => {
+                  setMoreShow(false);
+                }}
+              >
+                접기
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </Container>
   );
 };

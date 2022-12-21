@@ -8,11 +8,13 @@ import { loadPosts } from "../../_actions/postAction";
 const SNSPostMain1 = () => {
   const dispatch = useDispatch();
 
-  const { mainPosts, removePostDone } = useSelector((state) => state.post);
+  const { mainPosts, removePostDone, updatePostDone } = useSelector(
+    (state) => state.post
+  );
 
   useEffect(() => {
     dispatch(loadPosts());
-  }, [dispatch, removePostDone]);
+  }, [dispatch, removePostDone, updatePostDone]);
 
   return (
     <Container>

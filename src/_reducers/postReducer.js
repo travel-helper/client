@@ -14,7 +14,7 @@ import {
   removePost,
   //   retweet,
   //   unlikePost,
-  //   updatePost,
+  updatePost,
   uploadImage,
 } from "../_actions/postAction";
 
@@ -30,9 +30,9 @@ export const initialState = {
   addPostLoading: false,
   addPostDone: false,
   addPostError: null,
-  //   updatePostLoading: false,
-  //   updatePostDone: false,
-  //   updatePostError: null,
+  updatePostLoading: false,
+  updatePostDone: false,
+  updatePostError: null,
   removePostLoading: false,
   removePostDone: false,
   removePostError: null,
@@ -220,22 +220,23 @@ const postSlice = createSlice({
       //     state.retweetLoading = false;
       //     state.retweetError = action.error.message;
       //   })
-      //   // updatePost
-      //   .addCase(updatePost.pending, (state) => {
-      //     state.updatePostLoading = true;
-      //     state.updatePostDone = false;
-      //     state.updatePostError = null;
-      //   })
-      //   .addCase(updatePost.fulfilled, (state, action) => {
-      //     const post = _find(state.mainPosts, { id: action.payload.PostId });
-      //     state.updatePostLoading = false;
-      //     state.updatePostDone = true;
-      //     post.content = action.payload.content;
-      //   })
-      //   .addCase(updatePost.rejected, (state, action) => {
-      //     state.updatePostLoading = false;
-      //     state.updatePostError = action.error.message;
-      //   })
+      // updatePost
+      .addCase(updatePost.pending, (state) => {
+        state.updatePostLoading = true;
+        state.updatePostDone = false;
+        state.updatePostError = null;
+      })
+      .addCase(updatePost.fulfilled, (state, action) => {
+        const post = _find(state.mainPosts, { id: action.payload.PostId });
+        state.updatePostLoading = false;
+        state.updatePostDone = true;
+
+        post.content = action.payload.content;
+      })
+      .addCase(updatePost.rejected, (state, action) => {
+        state.updatePostLoading = false;
+        state.updatePostError = action.error.message;
+      })
       //   // loadPost
       //   .addCase(loadPost.pending, (state) => {
       //     state.loadPostsLoading = true;
