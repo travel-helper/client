@@ -50,6 +50,9 @@ const SNSPostMain2 = ({ content, nickname, thumbnail }) => {
       </div>
       <div className="card shadow-sm">
         <img
+          onClick={() => {
+            openModal();
+          }}
           className="bd-placeholder-img card-img-top"
           width="100%"
           height="225"
@@ -68,7 +71,12 @@ const SNSPostMain2 = ({ content, nickname, thumbnail }) => {
           fill="#D9D9D9"
         ></rect>
 
-        <div className="card-body">
+        <div
+          className="card-body"
+          onClick={() => {
+            openModal();
+          }}
+        >
           <div className="d-flex justify-content-between align-items-center">
             <div className="btn-group">
               <button
@@ -88,12 +96,16 @@ const SNSPostMain2 = ({ content, nickname, thumbnail }) => {
             </font>
           </p>
         </div>
+        <Modal open={modalOpen} close={closeModal} header="Modal heading">
+          <div>
+            <PostDetail
+              content={content}
+              nickname={nickname}
+              thumbnail={thumbnail}
+            />
+          </div>
+        </Modal>
       </div>
-      <Modal open={modalOpen} close={closeModal} header="Modal heading">
-        <div>
-          <PostDetail />
-        </div>
-      </Modal>
     </div>
   );
 };

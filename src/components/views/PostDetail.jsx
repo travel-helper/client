@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const PostDetail = () => {
+const PostDetail = ({ content, nickname, thumbnail }) => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
@@ -12,31 +12,34 @@ const PostDetail = () => {
   const [moreShow, setMoreShow] = useState(false);
   const [text, setText] = useState("");
   useEffect(() => {
-    setText(
-      "텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트" +
-        " 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트" +
-        " 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트" +
-        " 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트" +
-        " 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트" +
-        " 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트" +
-        " 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트" +
-        " 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트" +
-        " 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트"
-    );
+    setText(content);
   }, []);
 
   return (
     <Container>
       <div className="d-flex">
         <div className="user-profile"></div>
-        <div className="user-name">lets_go</div>
+        <div className="user-name">{nickname}</div>
 
         <button className="follow-btn">팔로잉</button>
         <button className="following-btn">팔로우</button>
       </div>
       <div className="grid_container">
-        <div>
-          <img src="/img/camera.png" alt="post_img" />
+        <div style={{ width: "35%" }}>
+          {!!thumbnail && (
+            <img
+              style={{ objectFit: "cover" }}
+              className="bd-placeholder-img card-img-top"
+              width="100%"
+              src={`http://localhost:443${thumbnail?.substring(7)}`}
+              role="img"
+              aria-label="자리 표시자: 썸네일"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              alt=""
+            />
+          )}
+          {!thumbnail && <img src="/img/camera.png" alt="post_img" />}
         </div>
       </div>
       <div className="d-flex justify-content-between align-items-center">

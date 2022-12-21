@@ -869,11 +869,11 @@ hr {
   width: 230px;
   height: 230px;
 }
-.grid_container img {
+/* .grid_container img {
   display: block;
   margin: 35% auto;
   width: 50px;
-}
+} */
 .post_btn > img {
   width: 50px;
 }

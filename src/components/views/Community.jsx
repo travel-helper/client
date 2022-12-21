@@ -25,11 +25,6 @@ function Community() {
             이벤트
           </Link>
         </button>
-        <button>
-          <Link to="/qa" style={{ textDecoration: "none", color: "black" }}>
-            Q&A
-          </Link>
-        </button>
       </div>
       <div className="container">
         <div className=" container mt-3">
