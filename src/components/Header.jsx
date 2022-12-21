@@ -40,9 +40,7 @@ export const Header = () => {
           문의
         </Link>
       </button>
-      {/* {jwt ? ( */}
-      {/* {isLogined ? ( */}
-      {true ? (
+      {jwt ? (
         <>
           <OverlayTrigger
             trigger="click"
