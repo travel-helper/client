@@ -6,7 +6,16 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { updatePost } from "../../_actions/postAction";
-const PostDetail = ({ postId, content, nickname, thumbnail }) => {
+const PostDetail = ({
+  title,
+  region,
+  tema,
+  priceRange,
+  postId,
+  content,
+  nickname,
+  thumbnail,
+}) => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
@@ -87,7 +96,10 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
           </div>
         </div>
       </div>
-      <div>좋아요 7891개</div>
+      <div>1234개</div>
+      <hr style={{ width: "100%" }}></hr>
+      <h3 className="mt-3">{title}</h3>
+
       <div>
         <Link
           to={""}
@@ -96,7 +108,7 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
             marginRight: "5px",
           }}
         >
-          #해시태그
+          #{region}
         </Link>
         <Link
           to={""}
@@ -105,7 +117,7 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
             marginRight: "5px",
           }}
         >
-          #해시태그
+          #{tema}
         </Link>
         <Link
           to={""}
@@ -114,16 +126,7 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
             marginRight: "5px",
           }}
         >
-          #해시태그
-        </Link>
-        <Link
-          to={""}
-          style={{
-            color: "white",
-            marginRight: "5px",
-          }}
-        >
-          #해시태그
+          #{priceRange}
         </Link>
       </div>
 

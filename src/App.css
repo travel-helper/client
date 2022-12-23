@@ -57,7 +57,7 @@
   width: 100%;
 }
 
-.banner {
+.banner1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -77,16 +77,116 @@
   order: 0;
   flex-grow: 0;
 }
+.banner2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 7px 15px;
+  gap: 10px;
 
-.banner > label {
-  /* 지금 당장 제주도 여행가자! */
+  width: 325px;
+  height: 114px;
+
+  background-image: url("/public/img/Incheon.png");
+  background-size: cover;
+  /* background: #84E4DF; */
+
+  border-radius: 15px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.banner3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 7px 15px;
+  gap: 10px;
+
+  width: 325px;
+  height: 114px;
+
+  background-image: url("/public/img/Seoul.png");
+  background-size: cover;
+  /* background: #84E4DF; */
+
+  border-radius: 15px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.banner4 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 7px 15px;
+  gap: 10px;
+
+  width: 325px;
+  height: 114px;
+
+  background-image: url("/public/img/Busan.png");
+  background-size: cover;
+  /* background: #84E4DF; */
+
+  border-radius: 15px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.banner5 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 7px 15px;
+  gap: 10px;
+
+  width: 325px;
+  height: 114px;
+
+  background-image: url("/public/img/Jeonju.png");
+  background-size: cover;
+  /* background: #84E4DF; */
+
+  border-radius: 15px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.banner6 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 7px 15px;
+  gap: 10px;
+
+  width: 325px;
+  height: 114px;
+
+  background-image: url("/public/img/Peongchong.png");
+  background-size: cover;
+  /* background: #84E4DF; */
+
+  border-radius: 15px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.banner1 > label {
   width: 268px;
   height: 29px;
 
   font-family: "Inter";
   font-style: normal;
+  text-shadow: 1px 1px 1px #000;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 25px;
   color: #ffffff;
 
@@ -95,41 +195,84 @@
   flex-grow: 0;
 }
 
-.banner > button {
-  /* Auto layout */
-
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 8px 11px;
-  gap: 10px;
-
-  width: 183px;
-  height: 35px;
-
-  background: #ffffff;
-  border-radius: 50px;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  border: none;
-}
-.banner > button > p {
-  width: 161px;
-  height: 19px;
+.banner2 > label {
+  width: 268px;
+  height: 29px;
 
   font-family: "Inter";
+  text-shadow: 1px 1px 1px #000;
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #ffffff;
 
-  color: #797979;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
 
-  /* Inside auto layout */
+.banner3 > label {
+  width: 268px;
+  height: 29px;
+
+  font-family: "Inter";
+  text-shadow: 1px 1px 1px #000;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #ffffff;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.banner4 > label {
+  width: 268px;
+  height: 29px;
+
+  font-family: "Inter";
+  text-shadow: 1px 1px 1px #000;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #ffffff;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.banner5 > label {
+  width: 268px;
+  height: 29px;
+
+  font-family: "Inter";
+  text-shadow: 1px 1px 1px #000;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #ffffff;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.banner6 > label {
+  width: 268px;
+  height: 29px;
+
+  font-family: "Inter";
+  text-shadow: 1px 1px 1px #000;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #ffffff;
 
   flex: none;
   order: 0;
