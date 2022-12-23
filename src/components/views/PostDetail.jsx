@@ -5,7 +5,7 @@ import { Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { updatePost } from "../../_actions/postAction";
+import { updatePost, likePost } from "../../_actions/postAction";
 const PostDetail = ({
   title,
   region,
@@ -15,6 +15,7 @@ const PostDetail = ({
   content,
   nickname,
   thumbnail,
+  likeCount,
 }) => {
   const [isListHover, setIsListHover] = useState(false);
   const heart = require("../../image/heart.png");
@@ -88,13 +89,16 @@ const PostDetail = ({
               className="post_btn"
               onMouseOver={() => setIsListHover(true)}
               onMouseOut={() => setIsListHover(false)}
+              onClick={() => {
+                dispatch(likePost(postId));
+              }}
             >
               <img src={isListHover ? pinkHeart : heart} alt="like" />
             </button>
           </div>
         </div>
       </div>
-      <div>1234개</div>
+      <div>좋아요 {likeCount}개</div>
       <hr style={{ width: "100%" }}></hr>
       <h3 className="mt-3">{title}</h3>
 

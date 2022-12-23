@@ -72,7 +72,7 @@ export const likePost = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await likeRequest(data); // PATCH /post/1/like
-      return response.data;
+      return response;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -84,7 +84,7 @@ export const unlikePost = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await unlikeRequest(data); // DELETE /post/1/like
-      return response.data;
+      return response;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }

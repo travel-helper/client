@@ -14,6 +14,7 @@ const SNSPostMain2 = ({
   content,
   nickname,
   thumbnail,
+  likeCount,
 }) => {
   const [isListHover, setIsListHover] = useState(false);
 
@@ -99,7 +100,6 @@ const SNSPostMain2 = ({
                 onMouseOver={() => setIsListHover(true)}
                 onMouseOut={() => setIsListHover(false)}
                 onClick={() => {
-                  
                   dispatch(likePost(postId));
                 }}
               >
@@ -107,7 +107,7 @@ const SNSPostMain2 = ({
               </button>
             </div>
           </div>
-          <p style={{ display: "inline-block" }}>1234개</p>
+          <p style={{ display: "inline-block" }}>좋아요 {likeCount}개</p>
           <hr style={{ width: "100%" }}></hr>
           <h4 className="mt-3">{title}</h4>
           <label style={{ color: "skyblue" }}>
@@ -133,6 +133,7 @@ const SNSPostMain2 = ({
               content={content}
               nickname={nickname}
               thumbnail={thumbnail}
+              likeCount={likeCount}
             />
           </div>
         </Modal>

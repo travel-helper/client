@@ -30,10 +30,11 @@ const SNSPostMain1 = () => {
                   postId={post.id}
                   tema={post.tema}
                   region={post.region}
-                  priceRange={post.priceRange}
+                  priceRange={post.price_range}
                   content={post.content}
                   nickname={post.User?.nickname}
                   thumbnail={post.thumbnail}
+                  likeCount={post.Likers.length}
                 />
               ))
           : mainPosts.map((post) => (
@@ -42,10 +43,11 @@ const SNSPostMain1 = () => {
                 postId={post.id}
                 tema={post.tema}
                 region={post.region}
-                priceRange={post.priceRange}
+                priceRange={post.price_range}
                 content={post.content}
                 nickname={post.User?.nickname}
                 thumbnail={post.thumbnail}
+                likeCount={post.Likers.length}
               />
             ))}
       </div>
