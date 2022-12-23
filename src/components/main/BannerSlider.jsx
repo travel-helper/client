@@ -29,41 +29,23 @@ const BannerSlider = () => {
   return (
     <Container>
       <Slider {...settings}>
-        <div className="banner">
+        <div className="banner1">
           <label>지금 제주도로 여행가자!</label>
-          <button>
-            <p>보러가기</p>
-          </button>
         </div>
-        <div className="banner">
-          <label>지금 제주도로 여행가자!</label>
-          <button>
-            <p>보러가기</p>
-          </button>
+        <div className="banner2">
+          <label>인천 차이나타운으로 가자</label>
         </div>
-        <div className="banner">
-          <label>지금 제주도로 여행가자!</label>
-          <button>
-            <p>보러가기</p>
-          </button>
+        <div className="banner3">
+          <label>서울 야경명소 N서울타워</label>
         </div>
-        <div className="banner">
-          <label>지금 제주도로 여행가자!</label>
-          <button>
-            <p>보러가기</p>
-          </button>
+        <div className="banner4">
+          <label>부산의 명소 해운대</label>
         </div>
-        <div className="banner">
-          <label>지금 제주도로 여행가자!</label>
-          <button>
-            <p>보러가기</p>
-          </button>
+        <div className="banner5">
+          <label>전주한옥마을에서 역사속으로</label>
         </div>
-        <div className="banner">
-          <label>지금 제주도로 여행가자!</label>
-          <button>
-            <p>보러가기</p>
-          </button>
+        <div className="banner6">
+          <label>귀여운 양보러 대관령으로</label>
         </div>
       </Slider>
     </Container>

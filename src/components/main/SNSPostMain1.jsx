@@ -11,10 +11,10 @@ const SNSPostMain1 = () => {
   const { mainPosts, removePostDone, updatePostDone, filterState, filter } =
     useSelector((state) => state.post);
 
+  console.log(mainPosts);
   useEffect(() => {
     dispatch(loadPosts());
   }, [dispatch, removePostDone, updatePostDone]);
-
   return (
     <Container>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
@@ -26,7 +26,11 @@ const SNSPostMain1 = () => {
               )
               .map((post) => (
                 <SNSPostMain2
+                  title={post.title}
                   postId={post.id}
+                  tema={post.tema}
+                  region={post.region}
+                  priceRange={post.priceRange}
                   content={post.content}
                   nickname={post.User?.nickname}
                   thumbnail={post.thumbnail}
@@ -34,7 +38,11 @@ const SNSPostMain1 = () => {
               ))
           : mainPosts.map((post) => (
               <SNSPostMain2
+                title={post.title}
                 postId={post.id}
+                tema={post.tema}
+                region={post.region}
+                priceRange={post.priceRange}
                 content={post.content}
                 nickname={post.User?.nickname}
                 thumbnail={post.thumbnail}
