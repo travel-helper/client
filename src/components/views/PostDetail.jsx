@@ -84,9 +84,6 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
             >
               <img src={isListHover ? pinkHeart : heart} alt="like" />
             </button>
-            <button className="post_btn">
-              <img src={"img/comment.png"} alt="like" />
-            </button>
           </div>
         </div>
       </div>

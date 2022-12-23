@@ -78,14 +78,6 @@ const Login = () => {
         </button>
         <br />
         <br />
-        <hr />
-        <p className="sns_text">sns로 간편 로그인 및 회원가입</p>
-
-        <div className="sns_login_btn">
-          <button className="kakao_login_join_btn"></button>
-          <button className="naver_login_join_btn"></button>
-          <button className="facebook_login_join_btn"></button>
-        </div>
       </Form>
     </Container>
   );

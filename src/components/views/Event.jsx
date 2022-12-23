@@ -4,7 +4,7 @@ import Banner from "../event/Banner";
 const Event = () => {
   return (
     <div>
-      <div className="board_btn">
+      {/* <div className="board_btn">
         <button>
           <Link
             to="/community"
@@ -23,7 +23,7 @@ const Event = () => {
             이벤트
           </Link>
         </button>
-      </div>
+      </div> */}
       <div className="col-n">
         <div className="row-md-3">
           <Banner title="제주도갈래 집갈래" />

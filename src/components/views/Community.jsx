@@ -6,7 +6,7 @@ import { Dropdown } from "react-bootstrap";
 function Community() {
   return (
     <div>
-      <div className="board_btn">
+      {/* <div className="board_btn">
         <button style={{ background: "#32D2C9" }}>
           <Link
             to="/community"
@@ -25,7 +25,7 @@ function Community() {
             이벤트
           </Link>
         </button>
-      </div>
+      </div> */}
       <div className="container">
         <div className=" container mt-3">
           <div>

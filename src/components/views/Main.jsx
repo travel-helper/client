@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <div>
       <div>
-        <div className="board_btn mb-3">
+        {/* <div className="board_btn mb-3">
           <button>
             <Link
               to="/community"
@@ -33,7 +33,7 @@ const Main = () => {
               이벤트
             </Link>
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="container">
         <div className="mb-3">

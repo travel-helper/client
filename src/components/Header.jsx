@@ -30,7 +30,7 @@ export const Header = () => {
       <a href="/">
         <img src={"img/mini_logo.png"} alt="logo" className="main_logo_img" />
       </a>
-      <button className="main_menu_btn_design">
+      {/* <button className="main_menu_btn_design">
         <Link to="/community" id="link">
           커뮤니티
         </Link>
@@ -39,7 +39,7 @@ export const Header = () => {
         <Link to="/qa" id="link">
           문의
         </Link>
-      </button>
+      </button> */}
       {jwt ? (
         <>
           <OverlayTrigger
@@ -48,14 +48,6 @@ export const Header = () => {
             overlay={
               <Popover id={`popover-positioned bottom`}>
                 <Popover.Body>
-                  <button className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6">
-                    <Link
-                      to="/mypage/profile"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
-                      마이페이지
-                    </Link>
-                  </button>
                   <button
                     className="d-block border-0 bg-light p-2 text-dark bg-opacity-10 fs-6"
                     onClick={() => {
@@ -73,7 +65,6 @@ export const Header = () => {
             <Button variant="secondary" className="info_icon"></Button>
           </OverlayTrigger>
 
-          <button className="bell_icon"></button>
           <button className="write">
             <Link to="/write" id="link" className="write_font">
               <p>글쓰기</p>

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
   const [isListHover, setIsListHover] = useState(false);
- 
+
   const heart = require("../../image/heart.png");
   const pinkHeart = require("../../image/heart_hover.png");
 
@@ -21,8 +21,6 @@ const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
   };
 
   const dispatch = useDispatch();
-
-
 
   return (
     <div className="col">
@@ -95,9 +93,6 @@ const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
               >
                 <img src={isListHover ? pinkHeart : heart} alt="like" />
               </button>
-              <button>
-                <img src={"img/comment.png"} alt="like" />
-              </button>
             </div>
           </div>
           <p
@@ -112,7 +107,7 @@ const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
         <Modal open={modalOpen} close={closeModal} header="Modal heading">
           <div>
             <PostDetail
-            postId={postId}
+              postId={postId}
               content={content}
               nickname={nickname}
               thumbnail={thumbnail}
