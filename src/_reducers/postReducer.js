@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 // import _concat from "lodash/concat";
 import _remove from "lodash/remove";
 import _find from "lodash/find";
@@ -6,16 +6,17 @@ import _find from "lodash/find";
 import {
   //   addComment,
   addPost,
-  //   likePost,
+  likePost,
   //   loadHashtagPosts,
   //   loadPost,
   loadPosts,
   //   loadUserPosts,
   removePost,
   //   retweet,
-  //   unlikePost,
+  unlikePost,
   updatePost,
   uploadImage,
+  filterPost,
 } from "../_actions/postAction";
 
 // 기본 state
@@ -36,12 +37,14 @@ export const initialState = {
   removePostLoading: false,
   removePostDone: false,
   removePostError: null,
+  filter: false,
+  filterState: {},
   //   addCommentLoading: false,
   //   addCommentDone: false,
   //   addCommentError: null,
-  //   likePostLoading: false,
-  //   likePostDone: false,
-  //   likePostError: null,
+    likePostLoading: false,
+    likePostDone: false,
+    likePostError: null,
   //   uploadImagesLoading: false,
   //   uploadImagesDone: false,
   //   uploadImagesError: null,
@@ -55,11 +58,10 @@ const postSlice = createSlice({
   name: "post",
   initialState,
   reducers: {
-    // removeImage(state, action) {
-    //   state.imagePaths = state.imagePaths.filter(
-    //     (v, i) => i !== action.payload
-    //   );
-    // },
+    filterPost(state, action) {
+      state.filterState = action.payload;
+      state.filter = true;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -173,38 +175,38 @@ const postSlice = createSlice({
         state.removePostLoading = false;
         state.removePostError = action.error.message;
       })
-      //   // likePost
-      //   .addCase(likePost.pending, (state) => {
-      //     state.likePostLoading = true;
-      //     state.likePostDone = false;
-      //     state.likePostError = null;
-      //   })
-      //   .addCase(likePost.fulfilled, (state, action) => {
-      //     const post = _find(state.mainPosts, { id: action.payload.PostId });
-      //     state.likePostLoading = false;
-      //     state.likePostDone = true;
-      //     post.Likers.push({ id: action.payload.UserId });
-      //   })
-      //   .addCase(likePost.rejected, (state, action) => {
-      //     state.likePostLoading = false;
-      //     state.likePostError = action.error.message;
-      //   })
-      //   // unlikePost
-      //   .addCase(unlikePost.pending, (state) => {
-      //     state.likePostLoading = true;
-      //     state.likePostDone = false;
-      //     state.likePostError = null;
-      //   })
-      //   .addCase(unlikePost.fulfilled, (state, action) => {
-      //     const post = _find(state.mainPosts, { id: action.payload.PostId });
-      //     state.likePostLoading = false;
-      //     state.likePostDone = true;
-      //     _remove(post.Likers, { id: action.payload.UserId });
-      //   })
-      //   .addCase(unlikePost.rejected, (state, action) => {
-      //     state.likePostLoading = false;
-      //     state.likePostError = action.error.message;
-      //   })
+        // likePost
+        .addCase(likePost.pending, (state) => {
+          state.likePostLoading = true;
+          state.likePostDone = false;
+          state.likePostError = null;
+        })
+        .addCase(likePost.fulfilled, (state, action) => {
+          const post = _find(state.mainPosts, { id: action.payload.PostId });
+          state.likePostLoading = false;
+          state.likePostDone = true;
+          post.Likers.push({ id: action.payload.UserId });
+        })
+        .addCase(likePost.rejected, (state, action) => {
+          state.likePostLoading = false;
+          state.likePostError = action.error.message;
+        })
+        // unlikePost
+        .addCase(unlikePost.pending, (state) => {
+          state.likePostLoading = true;
+          state.likePostDone = false;
+          state.likePostError = null;
+        })
+        .addCase(unlikePost.fulfilled, (state, action) => {
+          const post = _find(state.mainPosts, { id: action.payload.PostId });
+          state.likePostLoading = false;
+          state.likePostDone = true;
+          _remove(post.Likers, { id: action.payload.UserId });
+        })
+        .addCase(unlikePost.rejected, (state, action) => {
+          state.likePostLoading = false;
+          state.likePostError = action.error.message;
+        })
       //   // retweet
       //   .addCase(retweet.pending, (state) => {
       //     state.retweetLoading = true;

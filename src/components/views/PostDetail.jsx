@@ -49,8 +49,6 @@ const PostDetail = ({ postId, content, nickname, thumbnail }) => {
         <div className="user-profile"></div>
         <div className="user-name">{nickname}</div>
 
-        <button className="follow-btn">팔로잉</button>
-        <button className="following-btn">팔로우</button>
         <button className="modify-btn" onClick={onClickUpdateToggleButton}>
           수정하기
         </button>

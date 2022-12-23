@@ -8,9 +8,8 @@ import { loadPosts } from "../../_actions/postAction";
 const SNSPostMain1 = () => {
   const dispatch = useDispatch();
 
-  const { mainPosts, removePostDone, updatePostDone } = useSelector(
-    (state) => state.post
-  );
+  const { mainPosts, removePostDone, updatePostDone, filterState, filter } =
+    useSelector((state) => state.post);
 
   useEffect(() => {
     dispatch(loadPosts());
@@ -19,14 +18,28 @@ const SNSPostMain1 = () => {
   return (
     <Container>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-        {mainPosts.map((post) => (
-          <SNSPostMain2
-            postId={post.id}
-            content={post.content}
-            nickname={post.User?.nickname}
-            thumbnail={post.thumbnail}
-          />
-        ))}
+        {filter
+          ? mainPosts
+              .filter(
+                (v, i) =>
+                  v.region === filterState.region && v.tema === filterState.tema
+              )
+              .map((post) => (
+                <SNSPostMain2
+                  postId={post.id}
+                  content={post.content}
+                  nickname={post.User?.nickname}
+                  thumbnail={post.thumbnail}
+                />
+              ))
+          : mainPosts.map((post) => (
+              <SNSPostMain2
+                postId={post.id}
+                content={post.content}
+                nickname={post.User?.nickname}
+                thumbnail={post.thumbnail}
+              />
+            ))}
       </div>
     </Container>
   );

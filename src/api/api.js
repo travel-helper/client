@@ -65,3 +65,19 @@ export const updateRequest = async (params) => {
 
   return response.data;
 };
+export const filterRequest = async (params) => {
+  const response = await axios.patch(`/post/${params.id}`, params);
+
+  return response.data;
+};
+
+export const likeRequest = async (params) => {
+  const response = await axios.patch(`/post/${params}/like`);
+
+  return response.data;
+};
+export const unlikeRequest = async (params) => {
+  const response = await axios.delete(`/post/${params}/like`); // DELETE /post/1/like
+
+  return response.data;
+};

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import styled, { css } from "styled-components";
 import Modal from "../Modal";
 import PostDetail from "../views/PostDetail";
-import { removePost } from "../../_actions/postAction";
+import { removePost, likePost } from "../../_actions/postAction";
 import { useDispatch } from "react-redux";
 
 const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
@@ -90,6 +90,10 @@ const SNSPostMain2 = ({ postId, content, nickname, thumbnail }) => {
               <button
                 onMouseOver={() => setIsListHover(true)}
                 onMouseOut={() => setIsListHover(false)}
+                onClick={() => {
+                  
+                  dispatch(likePost(postId));
+                }}
               >
                 <img src={isListHover ? pinkHeart : heart} alt="like" />
               </button>

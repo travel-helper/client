@@ -27,7 +27,7 @@ const Write = () => {
   const onSubmit = (data) => {
     data["tema"] = tag1;
     data["region"] = tag2;
-    // data["priceRange"] = tag3; //db변경해야서 일단 주석처리
+    data["priceRange"] = tag3;
     data["thumbnail"] = imagePath;
     console.log(tag3);
 
@@ -122,6 +122,12 @@ const Write = () => {
                 <Dropdown.Item id="drop1" eventKey="자연">
                   자연
                 </Dropdown.Item>
+                <Dropdown.Item id="drop1" eventKey="데이트">
+                  데이트
+                </Dropdown.Item>
+                <Dropdown.Item id="drop1" eventKey="액티비티">
+                  액티비티
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
@@ -151,6 +157,21 @@ const Write = () => {
                 <Dropdown.Item id="drop2" eventKey="충청도">
                   충청도
                 </Dropdown.Item>
+                <Dropdown.Item id="drop2" eventKey="강원도">
+                  강원도
+                </Dropdown.Item>
+                <Dropdown.Item id="drop2" eventKey="전라도">
+                  전라도
+                </Dropdown.Item>
+                <Dropdown.Item id="drop2" eventKey="경상도">
+                  경상도
+                </Dropdown.Item>
+                <Dropdown.Item id="drop2" eventKey="충청도">
+                  충청도
+                </Dropdown.Item>
+                <Dropdown.Item id="drop2" eventKey="제주도">
+                  제주도
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
@@ -171,14 +192,23 @@ const Write = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item id="drop" eventKey="상">
-                  상
+                <Dropdown.Item id="drop" eventKey="1~10만원">
+                  1~10만원
                 </Dropdown.Item>
-                <Dropdown.Item id="drop" eventKey="중">
-                  중
+                <Dropdown.Item id="drop" eventKey="10~20만원">
+                  10~20만원
                 </Dropdown.Item>
-                <Dropdown.Item id="drop" eventKey="하">
-                  하
+                <Dropdown.Item id="drop" eventKey="20~30만원">
+                  20~30만원
+                </Dropdown.Item>
+                <Dropdown.Item id="drop" eventKey="30~40만원">
+                  30~40만원
+                </Dropdown.Item>
+                <Dropdown.Item id="drop" eventKey="50~60만원">
+                  50~60만원
+                </Dropdown.Item>
+                <Dropdown.Item id="drop" eventKey="60만원이상">
+                  60만원이상
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

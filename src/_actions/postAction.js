@@ -5,6 +5,8 @@ import {
   requestPosts,
   removeRequest,
   updateRequest,
+  likeRequest,
+  unlikeRequest,
 } from "../api/api";
 
 export const addPost = createAsyncThunk(
@@ -58,8 +60,31 @@ export const updatePost = createAsyncThunk(
     try {
       const response = await updateRequest(data);
 
-   
       return response;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const likePost = createAsyncThunk(
+  "post/likePost",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await likeRequest(data); // PATCH /post/1/like
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const unlikePost = createAsyncThunk(
+  "post/unlikePost",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await unlikeRequest(data); // DELETE /post/1/like
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
